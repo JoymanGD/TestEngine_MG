@@ -5,11 +5,11 @@ namespace Common.Helpers.System
         // Сводка:
         //     Reserved.
         None = 0,
-        LMB = 1,
-        MMB = 2,
-        RMB = 3,
-        XMB1 = 4,
-        XMB2 = 5,
+        LeftMouseButton = 1,
+        MiddleMouseButton = 2,
+        RightMouseButton = 3,
+        ExtraMouseButton1 = 4,
+        ExtraMouseButton2 = 5,
         //
         // Сводка:
         //     BACKSPACE key.

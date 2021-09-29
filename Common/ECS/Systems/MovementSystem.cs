@@ -7,8 +7,8 @@ using Common.ECS.Components;
 namespace Common.ECS.Systems
 {
     [With(typeof(Transform))]
-    [With(typeof(Controller))]
     [With(typeof(Movement))]
+    
     public partial class MovementSystem : AEntitySetSystem<GameTime>
     {
         private IParallelRunner runner;
@@ -20,13 +20,8 @@ namespace Common.ECS.Systems
         }
 
         [Update]
-        private void Update(ref Transform _transform, ref Controller _controller){
-            if(_controller.Flags["MoveLeft"]){
-                _transform.Position -= Vector3.UnitX/10;
-            }
-            if(_controller.Flags["MoveRight"]){
-                _transform.Position += Vector3.UnitX/10;
-            }
+        private void Update(ref Transform _transform, ref Movement _movement){
+            _transform.Translate(_movement.Direction * _movement.Speed);
         }
     }
 }

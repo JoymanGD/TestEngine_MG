@@ -3,10 +3,11 @@ using DefaultEcs;
 using DefaultEcs.System;
 using DefaultEcs.Threading;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using Common.ECS.Components;
 using Common.Helpers.System;
 using MonoGame.Extended.Input;
+using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace Common.ECS.Systems
 {
@@ -24,19 +25,26 @@ namespace Common.ECS.Systems
 
         [Update]
         private void Update(ref Controller _controller, ref Bindings _bindings){
-            ControlButtonPressing(ref _controller, ref _bindings);
+            ControlButtonsPressing(ref _controller, ref _bindings);
         }
 
-        void ControlButtonPressing(ref Controller _controller, ref Bindings _bindings){
-            foreach (var item in _controller.Flags.ToList())
+        void ControlButtonsPressing(ref Controller _controller, ref Bindings _bindings){
+            ExtendedStates states = new ExtendedStates(MouseExtended.GetState(), KeyboardExtended.GetState());
+            
+            foreach (var item in _controller.Holdings.ToList())
             {
-                if(WaldemInput.IsButtonDown((WaldemButtons)_bindings.Pairs[item.Key])){
-                    if(!item.Value) _controller.SetFlag(item.Key, true);
-                }
-                
-                if(WaldemInput.IsButtonUp((WaldemButtons)_bindings.Pairs[item.Key])){
-                    if(item.Value) _controller.SetFlag(item.Key, false);
-                }
+                var value = WaldemInput.IsButtonDown(states, (WaldemButtons)_bindings.Pairs[item.Key]);
+                _controller.SetHolding(item.Key, value);
+            }
+            foreach (var item in _controller.Pressings.ToList())
+            {
+                var value = WaldemInput.WasButtonJustDown(states, (WaldemButtons)_bindings.Pairs[item.Key]);
+                _controller.SetPressing(item.Key, value);
+            }
+            foreach (var item in _controller.Unpressings.ToList())
+            {
+                var value = WaldemInput.WasButtonJustUp(states, (WaldemButtons)_bindings.Pairs[item.Key]);
+                _controller.SetUnpressing(item.Key, value);
             }
         }
     }

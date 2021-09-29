@@ -1,3 +1,2 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/v.kruglyakov/Downloads/byBullet-master/Content/Effects/TestShader.fx","C:/Users/v.kruglyakov/Downloads/byBullet-master/Content/bin/DesktopGL/Effects/TestShader.xnb","EffectProcessor","CompiledEffectContent",1622,2607,1,0924494
-"C:/Users/v.kruglyakov/Downloads/byBullet-master/Content/Models/Head.fbx","C:/Users/v.kruglyakov/Downloads/byBullet-master/Content/bin/DesktopGL/Models/Head.xnb","ModelProcessor","ModelContent",6128652,17302070,6,6226726
+"c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/Mage.fbx","c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/bin/DesktopGL/Models/Mage.xnb","CpuAnimatedModelProcessor","DynamicModelContent",689132,322088,0,4391035

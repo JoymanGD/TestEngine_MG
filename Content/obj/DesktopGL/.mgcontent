@@ -4,10 +4,12 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/v.kruglyakov/Downloads/byBullet-master/Content/Effects/TestShader.fx</File>
-    <File>C:/Users/v.kruglyakov/Downloads/byBullet-master/Content/Models/Head.fbx</File>
+    <File>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/byBulletMan_v_3.fbx</File>
+    <File>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/byBulletMan_v_3_2.fbx</File>
+    <File>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/Mage.fbx</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

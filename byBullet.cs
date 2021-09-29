@@ -3,9 +3,10 @@ using Microsoft.Xna.Framework;
 using DefaultEcs;
 using DefaultEcs.Threading;
 using Common.Settings;
-using Common.SceneManagement;
 using MonoGame.Extended.Screens;
 using MonoGame.Extended.Screens.Transitions;
+using Common.Core.Scenes;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Common
 {
@@ -28,7 +29,18 @@ namespace Common
         }
 
         void SetBasicConfiguration(){
+            //Graphics settings
             Graphics = new GraphicsDeviceManager(this);
+            Graphics.GraphicsProfile = GraphicsProfile.HiDef;
+            
+            Graphics.PreferredBackBufferWidth = Window.ClientBounds.Width;
+            Graphics.PreferredBackBufferHeight = Window.ClientBounds.Height;
+            Graphics.IsFullScreen = false;
+            // Graphics.PreferredBackBufferWidth = 1920;
+            // Graphics.PreferredBackBufferHeight = 1080;
+            // Graphics.IsFullScreen = true;
+
+            //Other
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -39,11 +51,6 @@ namespace Common
         }
 
         void InitizalizeGameSettings(){
-            //Graphics settings
-            Graphics.PreferredBackBufferWidth = 1920;
-            Graphics.PreferredBackBufferHeight = 1080;
-            Graphics.ApplyChanges();
-            
             //initialize GameSetting class
             var settings = GameSettings.Instance;
             

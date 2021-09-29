@@ -17,5 +17,6 @@ namespace Common.Settings
         public World World;
         public IParallelRunner MainRunner;
         public ScreenManager ScreenManager;
+        public int DirectionalLightsCount = 0, PointLightsCount = 0;
     }
 }

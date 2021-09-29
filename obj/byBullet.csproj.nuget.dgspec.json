@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\UserName\\Desktop\\byBullet\\byBullet.csproj": {}
+    "C:\\Users\\joyma\\Desktop\\Projects\\Monogame\\byBullet\\byBullet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\UserName\\Desktop\\byBullet\\byBullet.csproj": {
+    "C:\\Users\\joyma\\Desktop\\Projects\\Monogame\\byBullet\\byBullet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UserName\\Desktop\\byBullet\\byBullet.csproj",
+        "projectUniqueName": "C:\\Users\\joyma\\Desktop\\Projects\\Monogame\\byBullet\\byBullet.csproj",
         "projectName": "byBullet",
-        "projectPath": "C:\\Users\\UserName\\Desktop\\byBullet\\byBullet.csproj",
-        "packagesPath": "C:\\Users\\UserName\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UserName\\Desktop\\byBullet\\obj\\",
+        "projectPath": "C:\\Users\\joyma\\Desktop\\Projects\\Monogame\\byBullet\\byBullet.csproj",
+        "packagesPath": "C:\\Users\\joyma\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joyma\\Desktop\\Projects\\Monogame\\byBullet\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\UserName\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\joyma\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,7 +60,7 @@
               "target": "Package",
               "version": "[3.8.0, )"
             },
-            "MonoGame.Framework.DesktopGL": {
+            "MonoGame.Framework.WindowsDX": {
               "target": "Package",
               "version": "[3.8.0.1641, )"
             },
@@ -88,12 +81,8 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.10, 3.1.10]"
-            },
-            {
               "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.10, 3.1.10]"
+              "version": "[3.1.17, 3.1.17]"
             }
           ],
           "frameworkReferences": {
@@ -101,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

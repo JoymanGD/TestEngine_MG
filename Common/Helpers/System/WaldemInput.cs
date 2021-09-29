@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Input;
 
@@ -5,7 +6,10 @@ namespace Common.Helpers.System
 {
     public static class WaldemInput
     {
-        public static bool IsButtonDown(WaldemButtons _button){
+        public static bool IsButtonDown(ExtendedStates _states, WaldemButtons _button){
+            var keyboardState = _states.KeyboardState;
+            var mouseState = _states.MouseState;
+
             var intButton = (int)_button;
             if(intButton < 8){
                 return MouseExtended.GetState().IsButtonDown((MouseButton)intButton);
@@ -17,40 +21,62 @@ namespace Common.Helpers.System
             return false;
         }
 
-        public static bool IsButtonUp(WaldemButtons _button){
+        public static bool IsButtonUp(ExtendedStates _states, WaldemButtons _button){
+            var keyboardState = _states.KeyboardState;
+            var mouseState = _states.MouseState;
+
             var intButton = (int)_button;
             if(intButton < 8){
                 return MouseExtended.GetState().IsButtonUp((MouseButton)intButton);
             }
             else if(intButton > 7){
+                // if(KeyboardExtended.GetState().IsKeyUp((Keys)68)) Console.WriteLine("D is pressing");
                 return KeyboardExtended.GetState().IsKeyUp((Keys)intButton);
             }
 
             return false;
         }
 
-        public static bool WasButtonJustDown(WaldemButtons _button){
+        public static bool WasButtonJustDown(ExtendedStates _states, WaldemButtons _button){
+            var keyboardState = _states.KeyboardState;
+            var mouseState = _states.MouseState;
+
             var intButton = (int)_button;
+
             if(intButton < 8){
-                return MouseExtended.GetState().WasButtonJustDown((MouseButton)intButton);
+                return mouseState.WasButtonJustDown((MouseButton)intButton);
             }
             else if(intButton > 7){
-                return KeyboardExtended.GetState().WasKeyJustUp((Keys)intButton);
+                return keyboardState.WasKeyJustUp((Keys)intButton);
             }
 
             return false;
         }
         
-        public static bool WasButtonJustUp(WaldemButtons _button){
+        public static bool WasButtonJustUp(ExtendedStates _states, WaldemButtons _button){
+            var keyboardState = _states.KeyboardState;
+            var mouseState = _states.MouseState;
+
             var intButton = (int)_button;
+            
             if(intButton < 8){
-                return MouseExtended.GetState().WasButtonJustUp((MouseButton)intButton);
+                return mouseState.WasButtonJustUp((MouseButton)intButton);
             }
             else if(intButton > 7){
-                return KeyboardExtended.GetState().WasKeyJustDown((Keys)intButton);
+                return keyboardState.WasKeyJustDown((Keys)intButton);
             }
 
             return false;
+        }
+    }
+
+    public struct ExtendedStates{
+        public MouseStateExtended MouseState;
+        public KeyboardStateExtended KeyboardState;
+
+        public ExtendedStates(MouseStateExtended _mouseState, KeyboardStateExtended _keyboardState){
+            MouseState = _mouseState;
+            KeyboardState = _keyboardState;
         }
     }
 }

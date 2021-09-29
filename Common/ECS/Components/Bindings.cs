@@ -8,13 +8,13 @@ namespace Common.ECS.Components
     {
         public Dictionary<string, int> Pairs { get; private set; }
 
-        public Bindings(bool _){
+        public Bindings(string _fileName){
             Pairs = new Dictionary<string, int>();
-            InitializeBindings();
+            InitializeBindings(_fileName);
         }
 
-        void InitializeBindings(){
-            var json = File.ReadAllText("C:\\Users\\UserName\\Desktop\\byBullet\\Content\\Json\\Bindings.json");
+        void InitializeBindings(string _fileName){
+            var json = File.ReadAllText(@".\Content\Json\" + _fileName + ".json");
 
             var objects = JObject.Parse(json);
             var list = objects.AsJEnumerable();
