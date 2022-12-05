@@ -14,12 +14,15 @@
         "outputPath": "C:\\Users\\joyma\\Desktop\\Projects\\Monogame\\byBullet\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\joyma\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\joyma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://teamcity.monogame.net/guestAuth/app/nuget/feed/_Root/default/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -48,11 +51,19 @@
               "target": "Package",
               "version": "[0.15.0, )"
             },
+            "ImGui.NET": {
+              "target": "Package",
+              "version": "[1.87.3, )"
+            },
             "MonoGame.Content.Builder.Task": {
               "target": "Package",
               "version": "[3.8.0.1641, )"
             },
             "MonoGame.Extended": {
+              "target": "Package",
+              "version": "[3.8.0, )"
+            },
+            "MonoGame.Extended.Graphics": {
               "target": "Package",
               "version": "[3.8.0, )"
             },
@@ -82,7 +93,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.17, 3.1.17]"
+              "version": "[3.1.27, 3.1.27]"
             }
           ],
           "frameworkReferences": {
@@ -90,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

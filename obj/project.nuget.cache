@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6W1pxnhSxo2DIZIFpn57wyIDgiBW4DKLEG/lY77ioc+iiMT5tVPTvhuE0vx5cDCXBnC9zapBXQe1Rt0nO9EC3w==",
+  "dgSpecHash": "sc8upZ7r1H/Fdhabnn7tXQyPgWnz/1JGA/57VuZMGQLAUi2XhPA0dNoLiW1M024tC0jC59LX8h0qe/YCzb9fTg==",
   "success": true,
   "projectFilePath": "C:\\Users\\joyma\\Desktop\\Projects\\Monogame\\byBullet\\byBullet.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\joyma\\.nuget\\packages\\defaultecs\\0.15.1\\defaultecs.0.15.1.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\defaultecs.analyzer\\0.15.0\\defaultecs.analyzer.0.15.0.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\fontstashsharp.monogame\\0.9.2\\fontstashsharp.monogame.0.9.2.nupkg.sha512",
+    "C:\\Users\\joyma\\.nuget\\packages\\imgui.net\\1.87.3\\imgui.net.1.87.3.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\info.lundin.math.dll\\1.2.6\\info.lundin.math.dll.1.2.6.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",
@@ -30,6 +31,7 @@
     "C:\\Users\\joyma\\.nuget\\packages\\microsoft.win32.registry\\4.0.0\\microsoft.win32.registry.4.0.0.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\monogame.extended\\3.8.0\\monogame.extended.3.8.0.nupkg.sha512",
+    "C:\\Users\\joyma\\.nuget\\packages\\monogame.extended.graphics\\3.8.0\\monogame.extended.graphics.3.8.0.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\monogame.extended.input\\3.8.0\\monogame.extended.input.3.8.0.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\monogame.framework.windowsdx\\3.8.0.1641\\monogame.framework.windowsdx.3.8.0.1641.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\myra\\1.2.3\\myra.1.2.3.nupkg.sha512",
@@ -52,7 +54,7 @@
     "C:\\Users\\joyma\\.nuget\\packages\\stbimagesharp\\2.22.4\\stbimagesharp.2.22.4.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\stbtruetypesharp\\1.24.7\\stbtruetypesharp.1.24.7.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.appcontext\\4.1.0\\system.appcontext.4.1.0.nupkg.sha512",
-    "C:\\Users\\joyma\\.nuget\\packages\\system.buffers\\4.0.0\\system.buffers.4.0.0.nupkg.sha512",
+    "C:\\Users\\joyma\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.collections\\4.0.11\\system.collections.4.0.11.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.collections.concurrent\\4.0.12\\system.collections.concurrent.4.0.12.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.collections.immutable\\1.2.0\\system.collections.immutable.1.2.0.nupkg.sha512",
@@ -89,7 +91,7 @@
     "C:\\Users\\joyma\\.nuget\\packages\\system.net.security\\4.0.1\\system.net.security.4.0.1.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.net.sockets\\4.1.0\\system.net.sockets.4.1.0.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.net.webheadercollection\\4.0.1\\system.net.webheadercollection.4.0.1.nupkg.sha512",
-    "C:\\Users\\joyma\\.nuget\\packages\\system.numerics.vectors\\4.1.1\\system.numerics.vectors.4.1.1.nupkg.sha512",
+    "C:\\Users\\joyma\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.objectmodel\\4.0.12\\system.objectmodel.4.0.12.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.reflection\\4.1.0\\system.reflection.4.1.0.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.reflection.dispatchproxy\\4.0.1\\system.reflection.dispatchproxy.4.0.1.nupkg.sha512",
@@ -103,6 +105,7 @@
     "C:\\Users\\joyma\\.nuget\\packages\\system.resources.reader\\4.0.0\\system.resources.reader.4.0.0.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.resources.resourcemanager\\4.0.1\\system.resources.resourcemanager.4.0.1.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.runtime\\4.1.0\\system.runtime.4.1.0.nupkg.sha512",
+    "C:\\Users\\joyma\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.4.0\\system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.runtime.extensions\\4.1.0\\system.runtime.extensions.4.1.0.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.runtime.handles\\4.0.1\\system.runtime.handles.4.0.1.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.runtime.interopservices\\4.1.0\\system.runtime.interopservices.4.1.0.nupkg.sha512",
@@ -137,7 +140,7 @@
     "C:\\Users\\joyma\\.nuget\\packages\\system.xml.xmldocument\\4.0.1\\system.xml.xmldocument.4.0.1.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.xml.xpath\\4.0.1\\system.xml.xpath.4.0.1.nupkg.sha512",
     "C:\\Users\\joyma\\.nuget\\packages\\system.xml.xpath.xdocument\\4.0.1\\system.xml.xpath.xdocument.4.0.1.nupkg.sha512",
-    "C:\\Users\\joyma\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.17\\microsoft.netcore.app.host.win-x64.3.1.17.nupkg.sha512"
+    "C:\\Users\\joyma\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.27\\microsoft.netcore.app.host.win-x64.3.1.27.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,6 +1,10 @@
 {
+  "MoveForward": 87,
+  "MoveBack": 83,
   "MoveRight": 68,
   "MoveLeft": 65,
+  "Debug_LightsSwitch": 76,
   "RotateLeftDebug": 37,
-  "RotateRightDebug": 39
+  "RotateRightDebug": 39,
+  "Config_MouseSensivity": 39
 }

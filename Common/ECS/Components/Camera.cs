@@ -13,7 +13,9 @@ namespace Common.ECS.Components
         }
 
         public void ApplyWorldMatrix(Matrix _worldMatrix){
-            ViewMatrix = Matrix.CreateLookAt(_worldMatrix.Translation, _worldMatrix.Forward + _worldMatrix.Translation, _worldMatrix.Up);
+            ViewMatrix = Matrix.Invert(_worldMatrix);
+            // var target = _worldMatrix.Translation + _worldMatrix.Forward;
+            // ViewMatrix = Matrix.CreateLookAt(_worldMatrix.Translation, target, _worldMatrix.Up);
         }
     }
 }

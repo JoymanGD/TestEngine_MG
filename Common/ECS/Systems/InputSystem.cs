@@ -6,8 +6,7 @@ using Microsoft.Xna.Framework;
 using Common.ECS.Components;
 using Common.Helpers.System;
 using MonoGame.Extended.Input;
-using Microsoft.Xna.Framework.Input;
-using System;
+using Common.Settings;
 
 namespace Common.ECS.Systems
 {
@@ -25,11 +24,13 @@ namespace Common.ECS.Systems
 
         [Update]
         private void Update(ref Controller _controller, ref Bindings _bindings){
-            ControlButtonsPressing(ref _controller, ref _bindings);
+            var mouseState = MouseExtended.GetState();
+            var keyboardState = KeyboardExtended.GetState();
+            ControlButtonsPressing(mouseState, keyboardState, ref _controller, ref _bindings);
         }
 
-        void ControlButtonsPressing(ref Controller _controller, ref Bindings _bindings){
-            ExtendedStates states = new ExtendedStates(MouseExtended.GetState(), KeyboardExtended.GetState());
+        void ControlButtonsPressing(MouseStateExtended _mouseState, KeyboardStateExtended _keyboardState, ref Controller _controller, ref Bindings _bindings){
+            ExtendedStates states = new ExtendedStates(_mouseState, _keyboardState);
             
             foreach (var item in _controller.Holdings.ToList())
             {

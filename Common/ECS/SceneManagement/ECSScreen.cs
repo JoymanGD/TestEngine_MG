@@ -14,6 +14,7 @@ namespace Common.ECS.SceneManagement
         protected ISystem<GameTime> DrawSystems { get; private set; }
         protected World World = GameSettings.Instance.World;
         protected IParallelRunner MainRunner = GameSettings.Instance.MainRunner;
+        protected SpriteBatch SpriteBatch = GameSettings.Instance.SpriteBatch;
         protected bool EntitiesInitialized = false;
 
         public ECSScreen(byBullet game) : base(game) { }

@@ -196,3 +196,14 @@ C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\Aether
 C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\Aether.Shaders.Deferred.dll
 C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\Aether.Shaders.FXAA.dll
 C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\Aether.Shaders.InfiniteGrid.dll
+C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\MonoGame.Extended.Graphics.dll
+C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\Content\Fonts\Default.xnb
+C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\Content\Models\Ground.xnb
+C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\Content\Models\Mastron.xnb
+C:\Users\joyma\Desktop\Projects\Monogame\byBullet\obj\Debug\netcoreapp3.1\byBullet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\Content\Models\Flemer.xnb
+C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\ImGui.NET.dll
+C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libcimgui.so
+C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\runtimes\osx-universal\native\libcimgui.dylib
+C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\cimgui.dll
+C:\Users\joyma\Desktop\Projects\Monogame\byBullet\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\cimgui.dll

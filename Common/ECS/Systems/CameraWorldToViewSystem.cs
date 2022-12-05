@@ -3,6 +3,7 @@ using DefaultEcs.System;
 using DefaultEcs.Threading;
 using Microsoft.Xna.Framework;
 using Common.ECS.Components;
+using System;
 
 namespace Common.ECS.Systems
 {

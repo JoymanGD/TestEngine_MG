@@ -23,86 +23,37 @@ namespace Common.ECS.Systems
 
         [Update]
         private void Update(ref Controller _controller, in Entity _entity){
+            Vector3 cameraRight, cameraForward;
+            CalculateCameraVectors(out cameraRight, out cameraForward);
+
             if(EntityCommandRecorder.Size > 0) EntityCommandRecorder.Clear();
-//MOVEMENT AND ANIMATION/////////////////////////////////////////////////////////////////////////////////////////////////////
-            //pressing
-            if(_controller.WasPressed("MoveLeft") || _controller.WasPressed("MoveRight")){
-                //animation
-                if(_entity.Has<Animation>()){
-                    var currentAnimation = _entity.Get<Animation>();
-                    if(currentAnimation.Name != "Armature|Run"){
-                        EntityCommandRecorder.Record(_entity).Remove<Animation>();
-                    }
-                }
-                EntityCommandRecorder.Record(_entity).Set(new Animation("Armature|Run"));
+            Vector2 inputVector = _controller.GetInputVector("MoveLeft", "MoveRight", "MoveForward", "MoveBack");
+            Vector3 moveDirection = cameraForward * inputVector.Y + cameraRight * inputVector.X;
 
-                //movement and looking at
-                if(_controller.WasPressed("MoveLeft")){
-                    if(_entity.Has<Movement>()) EntityCommandRecorder.Record(_entity).Remove<Movement>();
-                    EntityCommandRecorder.Record(_entity).Set(new Movement(Vector3.Left, .2f));
-                    
-                    if(_entity.Has<LookAt>()) EntityCommandRecorder.Record(_entity).Remove<LookAt>();
-                    EntityCommandRecorder.Record(_entity).Set(new LookAt(Vector3.Left, Vector3.Up));
-                }
-                if(_controller.WasPressed("MoveRight")){
-                    if(_entity.Has<Movement>()) EntityCommandRecorder.Record(_entity).Remove<Movement>();
-                    EntityCommandRecorder.Record(_entity).Set(new Movement(Vector3.Right, .2f));
-                    
-                    if(_entity.Has<LookAt>()) EntityCommandRecorder.Record(_entity).Remove<LookAt>();
-                    EntityCommandRecorder.Record(_entity).Set(new LookAt(Vector3.Right, Vector3.Up));
-                }
+            if(moveDirection != Vector3.Zero)
+            {
+                moveDirection.Normalize();
+                EntityCommandRecorder.Record(_entity).Set(new LookAt(moveDirection, Vector3.Up, true));
             }
 
-            //unpressing
-            if(_controller.WasUnpressed("MoveLeft") || _controller.WasUnpressed("MoveRight")){
-                //animation
-                if(_entity.Has<Animation>()){
-                    var currentAnimation = _entity.Get<Animation>();
-                    if(currentAnimation.Name != "Armature|Idle"){
-                        EntityCommandRecorder.Record(_entity).Remove<Animation>();
-                    }
-                }
-                EntityCommandRecorder.Record(_entity).Set(new Animation("Armature|Idle"));
-
-                //movement and looking at
-                if(_controller.WasUnpressed("MoveLeft")){
-                    if(_entity.Has<Movement>()) EntityCommandRecorder.Record(_entity).Remove<Movement>();
-                    
-                    if(_entity.Has<LookAt>()) EntityCommandRecorder.Record(_entity).Remove<LookAt>();
-                }
-                if(_controller.WasUnpressed("MoveRight")){
-                    if(_entity.Has<Movement>()) EntityCommandRecorder.Record(_entity).Remove<Movement>();
-                    
-                    if(_entity.Has<LookAt>()) EntityCommandRecorder.Record(_entity).Remove<LookAt>();
-                }
-            }
-
-//ROTATION/////////////////////////////////////////////////////////////////////////////////////////////////////
-            //pressing
-            if(_controller.WasPressed("RotateLeftDebug") || _controller.WasPressed("RotateRightDebug")){
-                // if(_controller.WasPressed("RotateLeftDebug")){
-                if(_controller.WasPressed("RotateLeftDebug")){
-                    if(_entity.Has<Rotation>()) EntityCommandRecorder.Record(_entity).Remove<Rotation>();
-                    // _entity.Set(new Rotation(Vector3.Right/10)); 
-                    EntityCommandRecorder.Record(_entity).Set(new Rotation(Vector3.Right/10)); //////////IMPROVE
-                }
-                if(_controller.WasPressed("RotateRightDebug")){
-                    if(_entity.Has<Rotation>()) EntityCommandRecorder.Record(_entity).Remove<Rotation>();
-                    EntityCommandRecorder.Record(_entity).Set(new Rotation(Vector3.Left/10));
-                }
-            }
-
-            //unpressing
-            if(_controller.WasUnpressed("RotateLeftDebug") || _controller.WasUnpressed("RotateRightDebug")){
-                if(_controller.WasUnpressed("RotateLeftDebug")){
-                    if(_entity.Has<Rotation>()) EntityCommandRecorder.Record(_entity).Remove<Rotation>();
-                }
-                if(_controller.WasUnpressed("RotateRightDebug")){
-                    if(_entity.Has<Rotation>()) EntityCommandRecorder.Record(_entity).Remove<Rotation>();
-                }
-            }
-
+            EntityCommandRecorder.Record(_entity).Set(new Movement(moveDirection, .2f));
+            
             if(EntityCommandRecorder.Size > 0) EntityCommandRecorder.Execute();
+        }
+
+        private void CalculateCameraVectors(out Vector3 right, out Vector3 forward)
+        {
+            var camera = World.Get<Camera>()[0];
+            var cameraWorld = Matrix.Invert(camera.ViewMatrix);
+
+            right = cameraWorld.Right;
+            forward = cameraWorld.Forward;
+
+            right.Y = 0;
+            forward.Y = 0;
+
+            right.Normalize();
+            forward.Normalize();
         }
     }
 }

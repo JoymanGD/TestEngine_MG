@@ -7,6 +7,7 @@ using Myra.Graphics2D;
 using Common.Settings;
 using FontStashSharp;
 using System.IO;
+using System;
 
 namespace Common.Core.Scenes
 {
@@ -19,12 +20,15 @@ namespace Common.Core.Scenes
 
         public override void LoadContent()
         {
-            MyraEnvironment.Game = GameSettings.Instance.Game;
+            Game.IsMouseVisible = true;
+
+            MyraEnvironment.Game = Game;
 
             var grid = new Grid();
+
             //grid.ShowGridLines = true;
             var fontSys = FontSystemFactory.Create(GameSettings.Instance.Game.GraphicsDevice, 400, 400);
-            fontSys.AddFont(File.ReadAllBytes(@"Content/Fonts/NotoSansJP-Light.otf"));
+            fontSys.AddFont(File.ReadAllBytes(@"Content/Fonts/Default.otf"));
 
             var title = new Label
             {
@@ -60,13 +64,23 @@ namespace Common.Core.Scenes
             Desktop = new Desktop();
             Desktop.Root = grid;
 
+            
+            Desktop.BoundsFetcher += BoundsFetcher;
+
             // Add it to the desktop
             base.LoadContent();
         }
 
+        private Rectangle BoundsFetcher()
+        {
+            var defaultBF = Desktop.DefaultBoundsFetcher();
+            var bf = Game.GameViewportRectangle;
+            return bf;
+        }
+
         public override void Update(GameTime gameTime)
         {
-            
+            Desktop.UpdateLayout();
         }
 
         public override void Draw(GameTime gameTime)

@@ -13,6 +13,7 @@ namespace Common.ECS.Systems
     {
         private IParallelRunner runner;
         private World world;
+        private bool lightsOn = true;
         
         public DebugSystem(World _world, IParallelRunner _runner) : base(_world, CreateEntityContainer, null, 0){
             world = _world;
@@ -21,22 +22,21 @@ namespace Common.ECS.Systems
 
         [Update]
         private void Update(ref Controller _controller){
-            if(_controller.IsHolding("MoveLeft")){
-                var lights = World.Get<Light>();
-
-                foreach (var light in lights)
+            if(_controller.WasPressed("Debug_LightsSwitch")){
+                if(lightsOn)
                 {
-                    light.IsActive = false;
+                    lightsOn = false;
                 }
-            }
+                else
+                {
+                    lightsOn = true;
+                }
 
-            
-            if(_controller.IsHolding("MoveRight")){
                 var lights = World.Get<Light>();
 
-                foreach (var light in lights)
+                foreach (var item in lights)
                 {
-                    light.IsActive = true;
+                    item.IsActive = lightsOn;
                 }
             }
         }

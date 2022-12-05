@@ -25,28 +25,31 @@ namespace Common.ECS.Systems
 
         [Update]
         private void Update(ref Transform _transform, ref Light _light)
-        {
-            var effects = World.Get<Effect>();
+        {            
+            if(_light.IsActive)
+            {
+                var effects = World.Get<Effect>();
 
-            if(_light.Type == LightType.Directional){
-                foreach (var effect in effects)
-                {
-                    effect.Parameters["DirectionalLightsAmbientColors"].Elements[_light.ID].SetValue(_light.AmbientColor.ToVector4());
-                    effect.Parameters["DirectionalLightsAmbientIntensities"].Elements[_light.ID].SetValue(_light.AmbientIntensity);
-                    effect.Parameters["DirectionalLightsDiffuseColors"].Elements[_light.ID].SetValue(_light.DiffuseColor.ToVector4());
-                    effect.Parameters["DirectionalLightsDiffuseIntensities"].Elements[_light.ID].SetValue(_light.DiffuseIntensity);
-                    effect.Parameters["DirectionalLightsDirections"].Elements[_light.ID].SetValue(_transform.Forward);
+                if(_light.Type == LightType.Directional){
+                    foreach (var effect in effects)
+                    {
+                        // effect.Parameters["DirectionalLightsAmbientColors"].Elements[_light.ID].SetValue(_light.AmbientColor.ToVector4());
+                        // effect.Parameters["DirectionalLightsAmbientIntensities"].Elements[_light.ID].SetValue(_light.AmbientIntensity);
+                        effect.Parameters["DirectionalLightsDiffuseColors"].Elements[_light.ID].SetValue(_light.DiffuseColor.ToVector4());
+                        effect.Parameters["DirectionalLightsDiffuseIntensities"].Elements[_light.ID].SetValue(_light.Intensity);
+                        effect.Parameters["DirectionalLightsDirections"].Elements[_light.ID].SetValue(_transform.WorldMatrix.Forward);
+                    }
                 }
-            }
-            else if(_light.Type == LightType.Point){
-                foreach (var effect in effects)
-                {
-                    effect.Parameters["PointLightsAmbientColors"].Elements[_light.ID].SetValue(_light.AmbientColor.ToVector4());
-                    effect.Parameters["PointLightsAmbientIntensities"].Elements[_light.ID].SetValue(_light.AmbientIntensity);
-                    effect.Parameters["PointLightsDiffuseColors"].Elements[_light.ID].SetValue(_light.DiffuseColor.ToVector4());
-                    effect.Parameters["PointLightsDiffuseIntensities"].Elements[_light.ID].SetValue(_light.DiffuseIntensity);
-                    effect.Parameters["PointLightsPositions"].Elements[_light.ID].SetValue(_transform.Position);
-                    effect.Parameters["PointLightsRadii"].Elements[_light.ID].SetValue(_transform.OneScale);
+                else if(_light.Type == LightType.Point){
+                    foreach (var effect in effects)
+                    {
+                        // effect.Parameters["PointLightsAmbientColors"].Elements[_light.ID].SetValue(_light.AmbientColor.ToVector4());
+                        // effect.Parameters["PointLightsAmbientIntensities"].Elements[_light.ID].SetValue(_light.AmbientIntensity);
+                        effect.Parameters["PointLightsDiffuseColors"].Elements[_light.ID].SetValue(_light.DiffuseColor.ToVector4());
+                        effect.Parameters["PointLightsIntensities"].Elements[_light.ID].SetValue(_light.Intensity);
+                        effect.Parameters["PointLightsPositions"].Elements[_light.ID].SetValue(_transform.Position);
+                        effect.Parameters["PointLightsRadii"].Elements[_light.ID].SetValue(_light.Range);
+                    }
                 }
             }
         }

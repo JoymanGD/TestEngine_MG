@@ -1,5 +1,9 @@
 using System.Collections.Generic;
 using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+using Common.Settings;
+using MonoGame.Extended.Input;
 
 namespace Common.ECS.Components
 {
@@ -9,7 +13,8 @@ namespace Common.ECS.Components
         public Dictionary<string, bool> Pressings { get; private set; }
         public Dictionary<string, bool> Unpressings { get; private set; }
 
-        public Controller(Bindings _bindings){
+        public void Init(Bindings _bindings)
+        {
             Holdings = new Dictionary<string, bool>();
             Pressings = new Dictionary<string, bool>();
             Unpressings = new Dictionary<string, bool>();
@@ -49,6 +54,30 @@ namespace Common.ECS.Components
 
         public bool WasUnpressed(string _key){
             return Unpressings[_key];
+        }
+
+        public Vector2 GetInputVector(string _left, string _right, string _up, string _down)
+        {
+            var result = Vector2.Zero;
+
+            if(IsHolding(_left))
+            {
+                result.X -= 1;
+            }
+            if(IsHolding(_right))
+            {
+                result.X += 1;
+            }
+            if(IsHolding(_down))
+            {
+                result.Y -= 1;
+            }
+            if(IsHolding(_up))
+            {
+                result.Y += 1;
+            }
+
+            return result;
         }
     }
 }

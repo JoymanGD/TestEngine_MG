@@ -5,6 +5,8 @@ using Common.ECS.Components;
 using Common.ECS.Systems;
 using DefaultEcs.System;
 using Common.ECS.SceneManagement;
+using Microsoft.Xna.Framework.Input;
+using System.Runtime.InteropServices;
 
 namespace Common.Core.Scenes
 {
@@ -14,6 +16,8 @@ namespace Common.Core.Scenes
 
         public override void LoadContent()
         {
+            // Game.IsMouseVisible = false;
+
             base.LoadContent();
         }
 
@@ -31,63 +35,83 @@ namespace Common.Core.Scenes
         public override void SetStartEntities()
         {
             var graphics = GameSettings.Instance.Graphics;
-            var shader = Content.Load<Effect>("Effects/TestShader");
+            var effect = Content.Load<Effect>("Effects/TestShader");
 
             var player = World.CreateEntity();
-            player.Set(new Transform(Vector3.Zero));
+            var playerTransform = new Transform(Vector3.Zero, 9);
+            player.Set(playerTransform);
             player.Set(new ModelRenderer(Content.Load<Model>("Models/Mage")));
-            player.Set(shader.Clone());
-            var playerBindings = new Bindings("Player");
-            player.Set(playerBindings);
-            player.Set(new Controller(playerBindings));
-            player.Set(new Animation("Armature|Idle"));
+            player.Set(effect.Clone());
+            player.Set(new Bindings("Player"));
+            player.Set(new Controller());
             player.Set(new Player(0));
-            
-            var player2 = World.CreateEntity();
-            player2.Set(new Transform(Vector3.Left * 4, Vector3.Left, Vector3.Up));
-            player2.Set(new ModelRenderer(Content.Load<Model>("Models/byBulletMan_v_3_2")));
-            player2.Set(shader.Clone());
 
             var camera = World.CreateEntity();
-            var cameraTransform = new Transform(new Vector3(0, 0, 20), Vector3.Forward, Vector3.Up);
+            var cameraTransform = new Transform(new Vector3(0, 0, 20), Vector3.Forward);
             camera.Set(cameraTransform);
             camera.Set(new Camera(graphics, cameraTransform.WorldMatrix));
-            var cameraBindings = new Bindings("Camera");
-            camera.Set(cameraBindings);
-            camera.Set(new Controller(cameraBindings));
+            camera.Set(new CameraZoom(20));
+            camera.Set(new OrbitalCamera(playerTransform, -1, 1, 5, 60, new Vector3(3, 2, 20)));
+            camera.Set(new Bindings("Camera"));
+            camera.Set(new Controller());
 
-            var firstLight = World.CreateEntity();
-            firstLight.Set(new Transform(new Vector3(0, 20, 0), Vector3.Down, Vector3.Backward));
-            firstLight.Set(new Light(LightType.Directional, Color.Yellow, 2f));
+            var player2 = World.CreateEntity();
+            var playerTransform2 = new Transform(new Vector3(-4, -9, 0), 9);
+            player2.Set(playerTransform2);
+            player2.Set(new ModelRenderer(Content.Load<Model>("Models/Flemer")));
+            player2.Set(effect.Clone());
 
-            var secondLight = World.CreateEntity();
-            secondLight.Set(new Transform(new Vector3(0, 0, 20), Vector3.Forward, Vector3.Up));
-            secondLight.Set(new Light(LightType.Directional, Color.Violet, 2f));
+            var ground = World.CreateEntity();
+            ground.Set(new Transform(new Vector3(0, 0, 0)));
+            ground.Set(new ModelRenderer(Content.Load<Model>("Models/Ground")));
+            ground.Set(effect.Clone());
 
-            var thirdLight = World.CreateEntity();
-            thirdLight.Set(new Transform(new Vector3(-30, 0, 0), Vector3.Right, Vector3.Up));
-            thirdLight.Set(new Light(LightType.Directional, Color.Blue, 2f));
+            // var firstLight = World.CreateEntity();
+            // var firstPosition = new Vector3(0, 20, 0);
+            // firstLight.Set(new Transform(firstPosition, Vector3.Down));
+            // firstLight.Set(new Light(LightType.Directional, Color.Yellow, 2f));
+
+            // var secondLight = World.CreateEntity();
+            // var secondPosition = new Vector3(0, 0, 20);
+            // secondLight.Set(new Transform(secondPosition, Vector3.Forward));
+            // secondLight.Set(new Light(LightType.Directional, Color.Violet, 2f));
+
+            // var thirdLight = World.CreateEntity();
+            // var thirdPosition = new Vector3(0, 5, 0);
+            // thirdLight.Set(new Transform(thirdPosition, Vector3.Forward, 5));
+            // thirdLight.Set(new Light(LightType.Point, Color.Yellow, 2f));
 
             // var fourthLight = World.CreateEntity();
-            // fourthLight.Set(new Transform(new Vector3(10, 0, 0), Vector3.Zero, 20));
-            // fourthLight.Set(new Light(LightType.Point, Color.Red, 2f));
+            // var fourthPosition = new Vector3(10, 5, 0);
+            // fourthLight.Set(new Transform(fourthPosition, Vector3.Forward, .2f));
+            // fourthLight.Set(new Light(LightType.Point, Color.LightCoral, 2f));
+
+            var fifthLight = World.CreateEntity();
+            var fifthPosition = new Vector3(-10, 5, 0);
+            fifthLight.Set(new Transform(fifthPosition));
+            fifthLight.Set(new Light(LightType.Point, Color.Aqua, 1f, 6f));
+
+            var profiler = World.CreateEntity();
+            profiler.Set(new GameInfo());
+            profiler.Set(Content.Load<SpriteFont>("Fonts/Default"));
         }
 
         public override ISystem<GameTime> InitializeUpdateSystems()
         {
             return new SequentialSystem<GameTime>(
+                new ControllerRegistrationSystem(World, MainRunner),
                 new InputSystem(World, MainRunner),
                 new PlayerControllingSystem(World, MainRunner),
                 new MovementSystem(World, MainRunner),
                 new RotationSystem(World, MainRunner),
-                new LookAtRegistrationSystem(World, MainRunner),
-                // new CameraControllingSystem(World, MainRunner),
                 new CameraWorldToViewSystem(World, MainRunner),
+                new OrbitalCameraSystem(World, MainRunner),
+                new FollowingSystem(World, MainRunner),
+                new LookAtSystem(World, MainRunner),
+                new LookAtTransformSystem(World, MainRunner),
                 new LightRegistrationSystem(World, MainRunner),
-                new AnimationRegistrationSystem(World, MainRunner),
-                new AnimationPlayingSystem(World, MainRunner),
                 new LightingSystem(World, MainRunner),
-                // new DebugSystem(World, MainRunner),
+                new DebugSystem(World, MainRunner),
                 new EffectsApplymentSystem(World, MainRunner)
             );
         }
@@ -96,7 +120,8 @@ namespace Common.Core.Scenes
         {
             return new SequentialSystem<GameTime>(
                 new EffectsDrawingSystem(World, MainRunner),
-                new ModelRenderingSystem(World, MainRunner)
+                new ModelRenderingSystem(World, MainRunner),
+                new ProfilingSystem(SpriteBatch, World, MainRunner)
             );
         }
     }

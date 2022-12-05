@@ -15,11 +15,6 @@ namespace Common.ECS.Systems
             Runner = _runner;
         }
 
-        protected override void PreUpdate(GameTime state)
-        {
-            base.PreUpdate(state);
-        }
-
         [Update]
         private void Update(ref ModelRenderer _renderer)
         {
@@ -27,11 +22,6 @@ namespace Common.ECS.Systems
             {
                 mesh.Draw();
             }
-        }
-
-        protected override void PostUpdate(GameTime state)
-        {
-            base.PostUpdate(state);
         }
     }
 }

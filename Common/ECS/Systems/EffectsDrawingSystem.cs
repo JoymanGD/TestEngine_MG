@@ -9,7 +9,6 @@ namespace Common.ECS.Systems
 {
     [With(typeof(ModelRenderer))]
     [With(typeof(Transform))]
-    [With(typeof(Effect))]
     public partial class EffectsDrawingSystem : AEntitySetSystem<GameTime>
     {
         private IParallelRunner Runner;
@@ -18,31 +17,26 @@ namespace Common.ECS.Systems
             Runner = _runner;
         }
 
-        protected override void PreUpdate(GameTime state)
-        {
-            base.PreUpdate(state);
-        }
-
         [Update]
-        private void Update(ref Transform _transform, ref Effect _effect)
+        private void Update(ref Transform _transform, ref ModelRenderer _modelRenderer)
         {
-            var cameraEntities = World.GetEntities().With<Camera>().With<Transform>().AsEnumerable();
+            var cameras = World.Get<Camera>();
+            var model = _modelRenderer.Model;
+            Matrix[] transforms = new Matrix[model.Bones.Count];
+            model.CopyAbsoluteBoneTransformsTo(transforms);
 
-            foreach (var cameraEntity in cameraEntities)
+            foreach (var camera in cameras)
             {
-                var camera = cameraEntity.Get<Camera>();
-
-                _effect.Parameters["WorldMatrix"].SetValue(_transform.WorldMatrix);
-                _effect.Parameters["ViewMatrix"].SetValue(camera.ViewMatrix);
-                _effect.Parameters["ProjectionMatrix"].SetValue(camera.ProjectionMatrix);
-                Matrix worldInverseTransposeMatrix = Matrix.Transpose(Matrix.Invert(_transform.WorldMatrix));
-                _effect.Parameters["WorldMatrix3x3"].SetValue(_transform.WorldMatrix);
+                foreach (ModelMesh mesh in model.Meshes)
+                {
+                    foreach (Effect effect in mesh.Effects)
+                    {
+                        effect.Parameters["WorldMatrix"].SetValue(transforms[mesh.ParentBone.Index] * _transform.WorldMatrix);
+                        effect.Parameters["ViewMatrix"].SetValue((Matrix)camera.ViewMatrix);
+                        effect.Parameters["ProjectionMatrix"].SetValue((Matrix)camera.ProjectionMatrix);
+                    }
+                }
             }
-        }
-
-        protected override void PostUpdate(GameTime state)
-        {
-            base.PostUpdate(state);
         }
     }
 }

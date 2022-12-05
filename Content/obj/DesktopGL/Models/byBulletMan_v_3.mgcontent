@@ -3,7 +3,7 @@
   <SourceFile>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/byBulletMan_v_3.fbx</SourceFile>
   <SourceTime>2021-09-29T03:10:57.9739107+03:00</SourceTime>
   <DestFile>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/bin/DesktopGL/Models/byBulletMan_v_3.xnb</DestFile>
-  <DestTime>2021-09-29T03:11:10.7694074+03:00</DestTime>
+  <DestTime>2022-07-25T02:21:03.269807+03:00</DestTime>
   <Importer>FbxImporter</Importer>
   <ImporterTime>2020-08-10T19:17:54+03:00</ImporterTime>
   <Processor>ModelProcessor</Processor>
@@ -42,7 +42,7 @@
   </Parameters>
   <Parameters>
     <Key>RotationX</Key>
-    <Value>0</Value>
+    <Value>-90</Value>
   </Parameters>
   <Parameters>
     <Key>RotationY</Key>

@@ -6,7 +6,7 @@ namespace Common.ECS.Components
     {
         public int Id { get; private set; }
 
-        public Player(int _id){
+        public Player(int _id = 0){
             Id = _id;
         }
 
