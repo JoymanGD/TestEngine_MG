@@ -1,0 +1,8 @@
+<Bindings>
+  <CameraMoveRight>76</CameraMoveRight>
+  <CameraMoveLeft>74</CameraMoveLeft>
+  <CameraMoveUp>73</CameraMoveUp>
+  <CameraMoveDown>75</CameraMoveDown>
+  <CameraZoomIn>187</CameraZoomIn>
+  <CameraZoomOut>189</CameraZoomOut>
+</Bindings>
