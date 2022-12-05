@@ -22,15 +22,7 @@ namespace Common
     {
         private GraphicsDeviceManager Graphics;
         private ScreenManager ScreenManager;
-        private bool gameScreenUpdating = true;
-        private bool gameScreenDrawing = true;
-        private RenderTarget2D gameScreen;
-        private RenderTarget2D engineScreen;
         private SpriteBatch spriteBatch;
-        private ImGUIRenderer guiRenderer;
-        private Rectangle gameViewportRectangle;
-
-        public Rectangle GameViewportRectangle => gameViewportRectangle;
 
         public byBullet()
         {
@@ -53,7 +45,6 @@ namespace Common
 
         private void InitializeProperties()
         {
-            guiRenderer = new ImGUIRenderer(this).Initialize().RebuildFontAtlas();
         }
 
         private void SetBasicConfiguration()
@@ -78,9 +69,6 @@ namespace Common
 
         private void InitizalizeGameSettings()
         {
-            gameScreen = new RenderTarget2D(GraphicsDevice, Graphics.PreferredBackBufferWidth, Graphics.PreferredBackBufferHeight);
-            engineScreen = new RenderTarget2D(GraphicsDevice, Graphics.PreferredBackBufferWidth, Graphics.PreferredBackBufferHeight);
-
             //initialize GameSetting class
             var settings = GameSettings.Instance;
             
@@ -97,53 +85,53 @@ namespace Common
 
         private void StartGame()
         {
-            ScreenManager.LoadScreen(new TestScreen(this), new FadeTransition(GraphicsDevice, Color.Black));
+            ScreenManager.LoadScreen(new MenuScreen(this), new FadeTransition(GraphicsDevice, Color.Black));
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.SetRenderTarget(engineScreen);
-                GraphicsDevice.Clear(Color.Coral);
+            // GraphicsDevice.SetRenderTarget(engineScreen);
+            //     GraphicsDevice.Clear(Color.Coral);
 
-                guiRenderer.BeginLayout(gameTime);
+            //     guiRenderer.BeginLayout(gameTime);
 
-                    ImGui.BeginMainMenuBar();
-                        ImGui.Button("File");
-                        ImGui.Button("Edit");
-                        ImGui.Button("About");
-                    ImGui.EndMainMenuBar();
+            //         ImGui.BeginMainMenuBar();
+            //             ImGui.Button("File");
+            //             ImGui.Button("Edit");
+            //             ImGui.Button("About");
+            //         ImGui.EndMainMenuBar();
 
-                    gameScreenDrawing = ImGui.Begin("Game");
-                        var windowSize = ImGui.GetContentRegionAvail();
-                        var correctPos = ImGui.GetWindowPos() + ImGui.GetWindowContentRegionMin();
-                        var pos = new Vector2(correctPos.X, correctPos.Y).ToPoint();
-                        var size = new Vector2(windowSize.X, windowSize.Y).ToPoint();
-                        gameViewportRectangle = new Rectangle(pos, size);
-                    ImGui.End();
+            //         gameScreenDrawing = ImGui.Begin("Game");
+            //             var windowSize = ImGui.GetContentRegionAvail();
+            //             var correctPos = ImGui.GetWindowPos() + ImGui.GetWindowContentRegionMin();
+            //             var pos = new Vector2(correctPos.X, correctPos.Y).ToPoint();
+            //             var size = new Vector2(windowSize.X, windowSize.Y).ToPoint();
+            //             gameViewportRectangle = new Rectangle(pos, size);
+            //         ImGui.End();
 
-                guiRenderer.EndLayout();
-            GraphicsDevice.SetRenderTarget(null);
+            //     guiRenderer.EndLayout();
+            // GraphicsDevice.SetRenderTarget(null);
 
-            GraphicsDevice.SetRenderTarget(gameScreen);
-                GraphicsDevice.Clear(Color.Coral);
-                if(gameScreenDrawing)
-                {
-                    ScreenManager.Draw(gameTime);
-                }
-            GraphicsDevice.SetRenderTarget(null);
+            // GraphicsDevice.SetRenderTarget(gameScreen);
+            //     GraphicsDevice.Clear(Color.Coral);
+            //     if(gameScreenDrawing)
+            //     {
+            //         ScreenManager.Draw(gameTime);
+            //     }
+            // GraphicsDevice.SetRenderTarget(null);
             
-            spriteBatch.Begin();
-            spriteBatch.Draw(engineScreen, Vector2.Zero, Color.White);
-            spriteBatch.Draw(gameScreen, gameViewportRectangle, Color.White);
-            spriteBatch.End();
+            // spriteBatch.Begin();
+            // spriteBatch.Draw(gameScreen, Vector2.Zero, Color.White);
+            // // spriteBatch.Draw(gameScreen, gameViewportRectangle, Color.White);
+            
+            // spriteBatch.End();
+
+            ScreenManager.Draw(gameTime);
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if(gameScreenUpdating)
-            {
-                ScreenManager.Update(gameTime);
-            }
+            ScreenManager.Update(gameTime);
         }
     }
 }

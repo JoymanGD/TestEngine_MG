@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/Mastron.fbx</SourceFile>
-  <SourceTime>2021-12-30T00:45:49.9734196+02:00</SourceTime>
-  <DestFile>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/bin/Windows/Content/Models/Mastron.xnb</DestFile>
-  <DestTime>2022-12-05T10:44:35.1894206+02:00</DestTime>
+  <SourceFile>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Models/Mastron.fbx</SourceFile>
+  <SourceTime>2022-12-05T11:58:50.7571966+02:00</SourceTime>
+  <DestFile>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/bin/Windows/Content/Models/Mastron.xnb</DestFile>
+  <DestTime>2022-12-05T12:03:56.6565926+02:00</DestTime>
   <Importer>FbxImporter</Importer>
   <ImporterTime>2020-08-10T19:17:54+03:00</ImporterTime>
   <Processor>ModelProcessor</Processor>

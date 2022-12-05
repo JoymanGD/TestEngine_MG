@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Fonts/Default.spritefont</SourceFile>
-  <SourceTime>2020-08-10T19:17:28+03:00</SourceTime>
-  <DestFile>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/bin/Windows/Content/Fonts/Default.xnb</DestFile>
-  <DestTime>2022-12-05T10:44:34.3994053+02:00</DestTime>
+  <SourceFile>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Fonts/Default.spritefont</SourceFile>
+  <SourceTime>2022-12-05T11:58:50.6918286+02:00</SourceTime>
+  <DestFile>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/bin/Windows/Content/Fonts/Default.xnb</DestFile>
+  <DestTime>2022-12-05T12:03:55.8470448+02:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2020-08-10T19:17:54+03:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

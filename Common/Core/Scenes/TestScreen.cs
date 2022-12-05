@@ -55,11 +55,11 @@ namespace Common.Core.Scenes
             camera.Set(new Bindings("Camera"));
             camera.Set(new Controller());
 
-            var player2 = World.CreateEntity();
-            var playerTransform2 = new Transform(new Vector3(-4, -9, 0), 9);
-            player2.Set(playerTransform2);
-            player2.Set(new ModelRenderer(Content.Load<Model>("Models/Flemer")));
-            player2.Set(effect.Clone());
+            // var player2 = World.CreateEntity();
+            // var playerTransform2 = new Transform(new Vector3(-4, -9, 0), 9);
+            // player2.Set(playerTransform2);
+            // player2.Set(new ModelRenderer(Content.Load<Model>("Models/Flemer")));
+            // player2.Set(effect.Clone());
 
             var ground = World.CreateEntity();
             ground.Set(new Transform(new Vector3(0, 0, 0)));
@@ -76,15 +76,15 @@ namespace Common.Core.Scenes
             // secondLight.Set(new Transform(secondPosition, Vector3.Forward));
             // secondLight.Set(new Light(LightType.Directional, Color.Violet, 2f));
 
-            // var thirdLight = World.CreateEntity();
-            // var thirdPosition = new Vector3(0, 5, 0);
-            // thirdLight.Set(new Transform(thirdPosition, Vector3.Forward, 5));
-            // thirdLight.Set(new Light(LightType.Point, Color.Yellow, 2f));
+            var thirdLight = World.CreateEntity();
+            var thirdPosition = new Vector3(0, 5, 0);
+            thirdLight.Set(new Transform(thirdPosition, Vector3.Forward, 5));
+            thirdLight.Set(new Light(LightType.Point, Color.Yellow, 2f));
 
-            // var fourthLight = World.CreateEntity();
-            // var fourthPosition = new Vector3(10, 5, 0);
-            // fourthLight.Set(new Transform(fourthPosition, Vector3.Forward, .2f));
-            // fourthLight.Set(new Light(LightType.Point, Color.LightCoral, 2f));
+            var fourthLight = World.CreateEntity();
+            var fourthPosition = new Vector3(10, 5, 0);
+            fourthLight.Set(new Transform(fourthPosition, Vector3.Forward, .2f));
+            fourthLight.Set(new Light(LightType.Point, Color.LightCoral, 2f));
 
             var fifthLight = World.CreateEntity();
             var fifthPosition = new Vector3(-10, 5, 0);

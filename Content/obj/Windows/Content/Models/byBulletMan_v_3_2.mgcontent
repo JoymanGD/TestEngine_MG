@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/byBulletMan_v_3_2.fbx</SourceFile>
-  <SourceTime>2021-12-30T00:11:14.651787+02:00</SourceTime>
-  <DestFile>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/bin/Windows/Content/Models/byBulletMan_v_3_2.xnb</DestFile>
-  <DestTime>2022-12-05T10:44:34.7072773+02:00</DestTime>
+  <SourceFile>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Models/byBulletMan_v_3_2.fbx</SourceFile>
+  <SourceTime>2022-12-05T11:58:50.7609671+02:00</SourceTime>
+  <DestFile>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/bin/Windows/Content/Models/byBulletMan_v_3_2.xnb</DestFile>
+  <DestTime>2022-12-05T12:03:56.1422239+02:00</DestTime>
   <Importer>FbxImporter</Importer>
   <ImporterTime>2020-08-10T19:17:54+03:00</ImporterTime>
   <Processor>ModelProcessor</Processor>

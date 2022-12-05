@@ -4,14 +4,14 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Effects/TestShader.fx</File>
-    <File>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Fonts/Default.spritefont</File>
-    <File>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/byBulletMan_v_3.fbx</File>
-    <File>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/byBulletMan_v_3_2.fbx</File>
-    <File>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/Flemer.fbx</File>
-    <File>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/Ground.fbx</File>
-    <File>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/Mage.fbx</File>
-    <File>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/Mastron.fbx</File>
+    <File>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Effects/TestShader.fx</File>
+    <File>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Fonts/Default.spritefont</File>
+    <File>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Models/byBulletMan_v_3.fbx</File>
+    <File>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Models/byBulletMan_v_3_2.fbx</File>
+    <File>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Models/Flemer.fbx</File>
+    <File>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Models/Ground.fbx</File>
+    <File>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Models/Mage.fbx</File>
+    <File>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Models/Mastron.fbx</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

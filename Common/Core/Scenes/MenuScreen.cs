@@ -64,18 +64,8 @@ namespace Common.Core.Scenes
             Desktop = new Desktop();
             Desktop.Root = grid;
 
-            
-            Desktop.BoundsFetcher += BoundsFetcher;
-
             // Add it to the desktop
             base.LoadContent();
-        }
-
-        private Rectangle BoundsFetcher()
-        {
-            var defaultBF = Desktop.DefaultBoundsFetcher();
-            var bf = Game.GameViewportRectangle;
-            return bf;
         }
 
         public override void Update(GameTime gameTime)

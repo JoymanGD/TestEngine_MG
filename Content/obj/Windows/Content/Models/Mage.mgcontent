@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/Mage.fbx</SourceFile>
-  <SourceTime>2021-12-30T00:09:04.5105806+02:00</SourceTime>
-  <DestFile>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/bin/Windows/Content/Models/Mage.xnb</DestFile>
-  <DestTime>2022-12-05T10:44:35.1109872+02:00</DestTime>
+  <SourceFile>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Models/Mage.fbx</SourceFile>
+  <SourceTime>2022-12-05T11:58:50.7542028+02:00</SourceTime>
+  <DestFile>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/bin/Windows/Content/Models/Mage.xnb</DestFile>
+  <DestTime>2022-12-05T12:03:56.5655962+02:00</DestTime>
   <Importer>FbxImporter</Importer>
   <ImporterTime>2020-08-10T19:17:54+03:00</ImporterTime>
   <Processor>CpuAnimatedModelProcessor</Processor>
-  <ProcessorTime>2021-06-09T21:04:49+03:00</ProcessorTime>
+  <ProcessorTime>2022-12-05T11:58:50.6958181+02:00</ProcessorTime>
   <Parameters>
     <Key>VertexBufferType</Key>
     <Value>DynamicWriteOnly</Value>

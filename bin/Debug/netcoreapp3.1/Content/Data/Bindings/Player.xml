@@ -1,0 +1,7 @@
+<Bindings>
+  <MoveUp>87</MoveUp>
+  <MoveDown>83</MoveDown>
+  <MoveRight>68</MoveRight>
+  <MoveLeft>65</MoveLeft>
+  <Jump>32</Jump>
+</Bindings>
