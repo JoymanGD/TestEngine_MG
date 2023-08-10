@@ -7,13 +7,23 @@ using Common.ECS.Components;
 using Common.Helpers.System;
 using MonoGame.Extended.Input;
 using Common.Settings;
+using System;
+using Microsoft.Xna.Framework.Input;
 
 namespace Common.ECS.Systems
 {
-    [With(typeof(Controller))]
-    [With(typeof(Bindings))]
+    [With(typeof(Main))]
+    [With(typeof(Input))]
     public partial class InputSystem : AEntitySetSystem<GameTime>
     {
+        public static MouseStateExtended MouseState;
+        public static KeyboardStateExtended KeyboardState;
+        public static Vector2 MousePosition => mousePosition.ToVector2();
+        public static Vector2 MouseDelta => mouseDelta.ToVector2();
+
+        private static Point oldMousePosition;
+        private static Point mousePosition;
+        private static Point mouseDelta;
         private IParallelRunner runner;
         private World world;
         
@@ -23,30 +33,43 @@ namespace Common.ECS.Systems
         }
 
         [Update]
-        private void Update(ref Controller _controller, ref Bindings _bindings){
-            var mouseState = MouseExtended.GetState();
-            var keyboardState = KeyboardExtended.GetState();
-            ControlButtonsPressing(mouseState, keyboardState, ref _controller, ref _bindings);
+        private void Update(ref Main main, ref Input input)
+        {
+            UpdateStates();
+
+            oldMousePosition = mousePosition;
+            mousePosition = MouseState.Position;
+
+            if(!input.ClipCursor)
+            {
+                var screenSize = GameSettings.Instance.ScreenSize.ToPoint();
+
+                if(mousePosition.X <= 0)
+                {
+                    Mouse.SetPosition(screenSize.X-1, mousePosition.Y);
+                    UpdateStates();
+                    oldMousePosition = mousePosition = MouseState.Position;
+                }
+                else if(mousePosition.X >= screenSize.X)
+                {
+                    Mouse.SetPosition(1, mousePosition.Y);
+                    UpdateStates();
+                    oldMousePosition = mousePosition = MouseState.Position;
+                }
+            }
+
+            mouseDelta = mousePosition - oldMousePosition;
+            
+            // if(mouseState.DeltaPosition != Point.Zero)
+            // {
+            //     Console.WriteLine($"pos: {MousePosition}, delta: {MouseDelta}");
+            // }
         }
 
-        void ControlButtonsPressing(MouseStateExtended _mouseState, KeyboardStateExtended _keyboardState, ref Controller _controller, ref Bindings _bindings){
-            ExtendedStates states = new ExtendedStates(_mouseState, _keyboardState);
-            
-            foreach (var item in _controller.Holdings.ToList())
-            {
-                var value = WaldemInput.IsButtonDown(states, (WaldemButtons)_bindings.Pairs[item.Key]);
-                _controller.SetHolding(item.Key, value);
-            }
-            foreach (var item in _controller.Pressings.ToList())
-            {
-                var value = WaldemInput.WasButtonJustDown(states, (WaldemButtons)_bindings.Pairs[item.Key]);
-                _controller.SetPressing(item.Key, value);
-            }
-            foreach (var item in _controller.Unpressings.ToList())
-            {
-                var value = WaldemInput.WasButtonJustUp(states, (WaldemButtons)_bindings.Pairs[item.Key]);
-                _controller.SetUnpressing(item.Key, value);
-            }
+        private void UpdateStates()
+        {
+            MouseState = MouseExtended.GetState();
+            KeyboardState = KeyboardExtended.GetState();
         }
     }
 }

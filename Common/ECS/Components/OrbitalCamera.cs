@@ -9,12 +9,10 @@ namespace Common.ECS.Components
         public float MinY { get; private set; }
         public float MaxY { get; private set; }
         public Vector3 Offset { get; private set; }
-        public float FollowSpeed { get; private set; }
         public float RotationX;
         public float RotationY;
-        public Vector3 OldTargetPosition;
 
-        public OrbitalCamera(Transform target, float orbitSpeed, float followSpeed, Vector3 offset)
+        public OrbitalCamera(Transform target, float orbitSpeed, Vector3 offset)
         {
             Target = target;
             MinY = 0;
@@ -23,11 +21,9 @@ namespace Common.ECS.Components
             RotationX = 0;
             RotationY = 0;
             Offset = offset;
-            FollowSpeed = followSpeed;
-            OldTargetPosition = target.Position;
         }
 
-        public OrbitalCamera(Transform target, float minY, float maxY, float orbitSpeed, float followSpeed, Vector3 offset)
+        public OrbitalCamera(Transform target, float minY, float maxY, float orbitSpeed, Vector3 offset)
         {
             Target = target;
             MinY = minY;
@@ -36,8 +32,6 @@ namespace Common.ECS.Components
             RotationX = 0;
             RotationY = 0;
             Offset = offset;
-            FollowSpeed = followSpeed;
-            OldTargetPosition = target.Position;
         }
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/Models/byBulletMan_v_3.fbx</SourceFile>
-  <SourceTime>2022-12-05T11:58:50.7596979+02:00</SourceTime>
-  <DestFile>C:/Users/LG_Mobile_01/Desktop/TestEngine_MG/Content/bin/Windows/Content/Models/byBulletMan_v_3.xnb</DestFile>
-  <DestTime>2022-12-05T12:03:56.0544917+02:00</DestTime>
+  <SourceFile>c:/Users/joyma/Desktop/MG_TestEngine/Content/Models/byBulletMan_v_3.fbx</SourceFile>
+  <SourceTime>2023-08-10T22:02:05.1465672+03:00</SourceTime>
+  <DestFile>c:/Users/joyma/Desktop/MG_TestEngine/Content/bin/Windows/Content/Models/byBulletMan_v_3.xnb</DestFile>
+  <DestTime>2023-08-10T22:32:04.3768429+03:00</DestTime>
   <Importer>FbxImporter</Importer>
   <ImporterTime>2020-08-10T19:17:54+03:00</ImporterTime>
   <Processor>ModelProcessor</Processor>

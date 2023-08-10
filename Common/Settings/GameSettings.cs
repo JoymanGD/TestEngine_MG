@@ -20,13 +20,14 @@ namespace Common.Settings
         public ScreenManager ScreenManager;
         public SpriteBatch SpriteBatch;
         public int DirectionalLightsCount = 0, PointLightsCount = 0;
+        public Vector2 ScreenSize => new Vector2(Graphics.PreferredBackBufferWidth, Graphics.PreferredBackBufferHeight);
         public Vector2 CenterPosition
         {
             get
             {
                 if(centerPosition == Vector2.Zero)
                 {
-                    centerPosition = new Vector2(Graphics.PreferredBackBufferWidth/2, Graphics.PreferredBackBufferHeight/2);
+                    centerPosition = ScreenSize / 2;
                 }
 
                 return centerPosition;

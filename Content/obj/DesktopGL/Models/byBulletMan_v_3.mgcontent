@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/Models/byBulletMan_v_3.fbx</SourceFile>
-  <SourceTime>2021-09-29T03:10:57.9739107+03:00</SourceTime>
-  <DestFile>c:/Users/joyma/Desktop/Projects/Monogame/byBullet/Content/bin/DesktopGL/Models/byBulletMan_v_3.xnb</DestFile>
-  <DestTime>2022-07-25T02:21:03.269807+03:00</DestTime>
+  <SourceFile>c:/Users/joyma/Desktop/MG_TestEngine/Content/Models/byBulletMan_v_3.fbx</SourceFile>
+  <SourceTime>2023-08-10T22:02:05.1465672+03:00</SourceTime>
+  <DestFile>c:/Users/joyma/Desktop/MG_TestEngine/Content/bin/DesktopGL/Models/byBulletMan_v_3.xnb</DestFile>
+  <DestTime>2023-08-10T22:04:35.5849357+03:00</DestTime>
   <Importer>FbxImporter</Importer>
-  <ImporterTime>2020-08-10T19:17:54+03:00</ImporterTime>
+  <ImporterTime>2023-03-19T22:06:30+02:00</ImporterTime>
   <Processor>ModelProcessor</Processor>
-  <ProcessorTime>2020-08-10T19:17:54+03:00</ProcessorTime>
+  <ProcessorTime>2023-03-19T22:06:30+02:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>0,0,0,0</Value>

@@ -7,7 +7,6 @@ using System;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Input;
 using Common.Settings;
-using System.Windows.Forms;
 
 namespace Common.ECS.Systems
 {
@@ -27,17 +26,14 @@ namespace Common.ECS.Systems
         }
 
         [Update]
-        private void Update(ref OrbitalCamera orbital, ref Transform transform, ref Controller _controller, GameTime _gameTime){
-            float elapsedTime = (float)_gameTime.ElapsedGameTime.TotalSeconds;
+        private void Update(ref OrbitalCamera orbital, ref Transform transform, ref Controller controller, GameTime gameTime)
+        {
+            float elapsedTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            Vector3 oldTargetPosition = orbital.OldTargetPosition;
             Vector3 targetPosition = orbital.Target.Position;
-            Vector2 mouseDelta = GetMouseDelta();
-            // Console.WriteLine($"pos: {_controller.MousePosition}; delta: {_controller.MouseDelta}");
+            Vector2 mouseDelta = InputSystem.MouseDelta;
 
-            var lerpedPosition = Vector3.Lerp(oldTargetPosition, targetPosition, elapsedTime * orbital.FollowSpeed/SPEED_COEF);
-
-            transform.Position = lerpedPosition;
+            transform.Position = targetPosition;
 
             orbital.RotationX += -mouseDelta.X * elapsedTime * orbital.OrbitSpeed/SPEED_COEF;
             orbital.RotationY += -mouseDelta.Y * elapsedTime * orbital.OrbitSpeed/SPEED_COEF;
@@ -51,20 +47,6 @@ namespace Common.ECS.Systems
                                             + transform.WorldMatrix.Up * orbital.Offset.Y;
 
             transform.Position = endPoint;
-
-            //update old target position
-            orbital.OldTargetPosition = lerpedPosition;
-        }
-
-        private Vector2 GetMouseDelta()
-        {
-            var resetPosition = GameSettings.Instance.CenterPosition;
-            var mousePosition = Cursor.Position;
-            var mouseDelta = new Vector2(mousePosition.X - resetPosition.X, mousePosition.Y - resetPosition.Y);
-
-            Cursor.Position = new System.Drawing.Point((int)resetPosition.X, (int)resetPosition.Y);
-
-            return mouseDelta;
         }
     }
 }

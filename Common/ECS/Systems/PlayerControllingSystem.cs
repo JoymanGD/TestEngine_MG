@@ -22,11 +22,15 @@ namespace Common.ECS.Systems
         }
 
         [Update]
-        private void Update(ref Controller _controller, in Entity _entity){
-            Vector3 cameraRight, cameraForward;
-            CalculateCameraVectors(out cameraRight, out cameraForward);
+        private void Update(ref Controller _controller, in Entity _entity)
+        {
+            CalculateCameraVectors(out Vector3 cameraRight, out Vector3 cameraForward);
 
-            if(EntityCommandRecorder.Size > 0) EntityCommandRecorder.Clear();
+            if(EntityCommandRecorder.Size > 0)
+            {
+                EntityCommandRecorder.Clear();
+            }
+
             Vector2 inputVector = _controller.GetInputVector("MoveLeft", "MoveRight", "MoveForward", "MoveBack");
             Vector3 moveDirection = cameraForward * inputVector.Y + cameraRight * inputVector.X;
 
@@ -37,8 +41,11 @@ namespace Common.ECS.Systems
             }
 
             EntityCommandRecorder.Record(_entity).Set(new Movement(moveDirection, .2f));
-            
-            if(EntityCommandRecorder.Size > 0) EntityCommandRecorder.Execute();
+
+            if(EntityCommandRecorder.Size > 0)
+            {
+                EntityCommandRecorder.Execute();
+            }
         }
 
         private void CalculateCameraVectors(out Vector3 right, out Vector3 forward)

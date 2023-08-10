@@ -1,0 +1,384 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "byBullet/1.0.0": {
+        "dependencies": {
+          "DefaultEcs": "0.15.1",
+          "DefaultEcs.Analyzer": "0.15.0",
+          "MonoGame.Content.Builder.Task": "3.8.1.303",
+          "MonoGame.Content.Builder.Task.Compute": "3.8.2",
+          "MonoGame.Extended": "3.8.0",
+          "MonoGame.Extended.Graphics": "3.8.0",
+          "MonoGame.Extended.Input": "3.8.0",
+          "MonoGame.Framework.Compute.DesktopGL": "3.8.2",
+          "Myra": "1.2.3",
+          "Aether.Atlas": "1.0.0.0",
+          "Aether.Graphics": "1.0.0.0",
+          "Aether.Shaders.Deferred": "1.0.0.0",
+          "Aether.Shaders.FXAA": "1.0.0.0",
+          "Aether.Shaders.InfiniteGrid": "1.0.0.0"
+        },
+        "runtime": {
+          "byBullet.dll": {}
+        }
+      },
+      "AssetManagementBase/0.5.2": {
+        "runtime": {
+          "lib/netstandard2.0/AssetManagementBase.dll": {
+            "assemblyVersion": "0.5.2.0",
+            "fileVersion": "0.5.2.0"
+          }
+        }
+      },
+      "Cyotek.Drawing.BitmapFont/2.0.1": {
+        "runtime": {
+          "lib/netcoreapp3.1/Cyotek.Drawing.BitmapFont.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.0.1.0"
+          }
+        }
+      },
+      "DefaultEcs/0.15.1": {
+        "runtime": {
+          "lib/netstandard2.1/DefaultEcs.dll": {
+            "assemblyVersion": "0.15.1.0",
+            "fileVersion": "0.15.1.0"
+          }
+        }
+      },
+      "DefaultEcs.Analyzer/0.15.0": {},
+      "FontStashSharp.MonoGame/0.9.2": {
+        "dependencies": {
+          "Cyotek.Drawing.BitmapFont": "2.0.1",
+          "StbImageSharp": "2.22.4",
+          "StbTrueTypeSharp": "1.24.7"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.MonoGame.dll": {
+            "assemblyVersion": "0.9.2.0",
+            "fileVersion": "0.9.2.0"
+          }
+        }
+      },
+      "info.lundin.math.dll/1.2.6": {
+        "runtime": {
+          "lib/netstandard2.0/info.lundin.math.dll": {
+            "assemblyVersion": "1.2.6.0",
+            "fileVersion": "1.2.6.0"
+          }
+        }
+      },
+      "MonoGame.Content.Builder.Task/3.8.1.303": {},
+      "MonoGame.Content.Builder.Task.Compute/3.8.2": {},
+      "MonoGame.Extended/3.8.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MonoGame.Extended.Graphics/3.8.0": {
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Graphics.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MonoGame.Extended.Input/3.8.0": {
+        "dependencies": {
+          "MonoGame.Extended": "3.8.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Extended.Input.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MonoGame.Framework.Compute.DesktopGL/3.8.2": {
+        "runtime": {
+          "lib/net6.0/MonoGame.Framework.dll": {
+            "assemblyVersion": "3.8.2.0",
+            "fileVersion": "3.8.2.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libSDL2-2.0.so.0": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libopenal.so.1": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx/native/libSDL2.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx/native/libopenal.1.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/SDL2.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "2.0.20.0"
+          },
+          "runtimes/win-x64/native/soft_oal.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/SDL2.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "2.0.20.0"
+          },
+          "runtimes/win-x86/native/soft_oal.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Myra/1.2.3": {
+        "dependencies": {
+          "AssetManagementBase": "0.5.2",
+          "FontStashSharp.MonoGame": "0.9.2",
+          "info.lundin.math.dll": "1.2.6"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Myra.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "StbImageSharp/2.22.4": {
+        "runtime": {
+          "lib/netstandard2.0/StbImageSharp.dll": {
+            "assemblyVersion": "2.22.4.0",
+            "fileVersion": "2.22.4.0"
+          }
+        }
+      },
+      "StbTrueTypeSharp/1.24.7": {
+        "runtime": {
+          "lib/netstandard2.0/StbTrueTypeSharp.dll": {
+            "assemblyVersion": "1.24.7.0",
+            "fileVersion": "1.24.7.0"
+          }
+        }
+      },
+      "Aether.Atlas/1.0.0.0": {
+        "runtime": {
+          "Aether.Atlas.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Aether.Graphics/1.0.0.0": {
+        "runtime": {
+          "Aether.Graphics.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Aether.Shaders.Deferred/1.0.0.0": {
+        "runtime": {
+          "Aether.Shaders.Deferred.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Aether.Shaders.FXAA/1.0.0.0": {
+        "runtime": {
+          "Aether.Shaders.FXAA.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Aether.Shaders.InfiniteGrid/1.0.0.0": {
+        "runtime": {
+          "Aether.Shaders.InfiniteGrid.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "byBullet/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AssetManagementBase/0.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LELzkQlIDN1pNkS5aOxakT0pTBGHjEv0ML41hH9HR/SzUBJJaU8yX1nwl3XQ+vLdEMrNtKd8S72bypTdxqPLdg==",
+      "path": "assetmanagementbase/0.5.2",
+      "hashPath": "assetmanagementbase.0.5.2.nupkg.sha512"
+    },
+    "Cyotek.Drawing.BitmapFont/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8C8Vdvf8p6RIOBNFE99ZNPWFxwV/ZT1wk11cajuL3+6/e5DBGPHe+ZjxLu2efTWQ1YvfLh4KpP2epUZ9z/WcFQ==",
+      "path": "cyotek.drawing.bitmapfont/2.0.1",
+      "hashPath": "cyotek.drawing.bitmapfont.2.0.1.nupkg.sha512"
+    },
+    "DefaultEcs/0.15.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-J8IhJgAHMPgRN373XwJqcG9fATex3o+UBK2SYbnapqY2eSm4gDvwypvWb+oTIVksOUwiZsnuhZZNi8ZmOTpYOw==",
+      "path": "defaultecs/0.15.1",
+      "hashPath": "defaultecs.0.15.1.nupkg.sha512"
+    },
+    "DefaultEcs.Analyzer/0.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nlAsKq9ofWrGS63/jP/BJTRV7Bfco4Vbr0t8vtiBOYKCKmJMqsSj7P/r02fPB2L6ADxpRWmlakpGEqzogHntWw==",
+      "path": "defaultecs.analyzer/0.15.0",
+      "hashPath": "defaultecs.analyzer.0.15.0.nupkg.sha512"
+    },
+    "FontStashSharp.MonoGame/0.9.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3oXgpupCwfphSEb7MKlYpR3iQzGoOEmChYOW/gg18X1OA8aDdSXYwEV7F5s1SU7VYZ9wwHsNcblC9vdiIJJ9kg==",
+      "path": "fontstashsharp.monogame/0.9.2",
+      "hashPath": "fontstashsharp.monogame.0.9.2.nupkg.sha512"
+    },
+    "info.lundin.math.dll/1.2.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rCSUXUISKOmFkpEPd9wZJP9bHsyozEwvid3zO4gByG1QQX9IMAUZ8R9OZmpKp20JWrBMGBMTgoXAuLCSoK6VAQ==",
+      "path": "info.lundin.math.dll/1.2.6",
+      "hashPath": "info.lundin.math.dll.1.2.6.nupkg.sha512"
+    },
+    "MonoGame.Content.Builder.Task/3.8.1.303": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9Ilzzje62LhWElbPNEl7vh7XsRSbze+lvCJdZtTZUGu48FRgvYN6THURwIB9PN98EI33/Wnf6iuShNUtD7hL4Q==",
+      "path": "monogame.content.builder.task/3.8.1.303",
+      "hashPath": "monogame.content.builder.task.3.8.1.303.nupkg.sha512"
+    },
+    "MonoGame.Content.Builder.Task.Compute/3.8.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+looAhdr9pk6YjZugY4kG4KiwhxbYTnuRQ3vSAe/Wskv5JT5fzUdhMzhAY5xSclP3F5bNNk84r6Ozi2dKe93ZQ==",
+      "path": "monogame.content.builder.task.compute/3.8.2",
+      "hashPath": "monogame.content.builder.task.compute.3.8.2.nupkg.sha512"
+    },
+    "MonoGame.Extended/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FDPoUOFtslGNHCWSqjKD0C67RYN6Stb6NWnn+rkCmtkPBZlE6LvwuGyQBkHUkAMANO3LzO/Wsz9etMhwZLInqg==",
+      "path": "monogame.extended/3.8.0",
+      "hashPath": "monogame.extended.3.8.0.nupkg.sha512"
+    },
+    "MonoGame.Extended.Graphics/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vSl1+4dFNKnOqHUB1SRQ7IdWXNagJJI+KKCQmaSyfon99/kumsChQ9iZXltEaUO3ArB8QGnblii/PXq/bsLUHQ==",
+      "path": "monogame.extended.graphics/3.8.0",
+      "hashPath": "monogame.extended.graphics.3.8.0.nupkg.sha512"
+    },
+    "MonoGame.Extended.Input/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-90RtzI6N+RCGHolI/yTwGT47vqSyr+IEe+yKxzm4/euc8rDVnbAwz4lRifkAEdHx29X3apD0Ui5ve0C/7yO7wQ==",
+      "path": "monogame.extended.input/3.8.0",
+      "hashPath": "monogame.extended.input.3.8.0.nupkg.sha512"
+    },
+    "MonoGame.Framework.Compute.DesktopGL/3.8.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zVPJxgMx4KtuD9JYej/o5kIpNurPROnGYMOPfTFYEx2jTe0R+PqziAa+emgnv0CfG3hYQOPbUtbVwXWVFKRPSw==",
+      "path": "monogame.framework.compute.desktopgl/3.8.2",
+      "hashPath": "monogame.framework.compute.desktopgl.3.8.2.nupkg.sha512"
+    },
+    "Myra/1.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VXAMNhwv8iKChXcv8BkXAJyyHZipT9m9EaaAnc9wrqw2Ki2GnL2sSnz4Ezxgv9kfMEq4X2F48CvlTLfz3ww9wg==",
+      "path": "myra/1.2.3",
+      "hashPath": "myra.1.2.3.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "StbImageSharp/2.22.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0dOXIj3OM8oGxtfqZHZdLJRnV7FjP4VToeCprpyVXbWpct6DplgWq6YKVFA5hAYVs8hzvGekA97Qg8C3exeVYg==",
+      "path": "stbimagesharp/2.22.4",
+      "hashPath": "stbimagesharp.2.22.4.nupkg.sha512"
+    },
+    "StbTrueTypeSharp/1.24.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4hmKw+Fq22Fs8GI8o1U7SUGw7iNTYVNc476o/rxmDVgIsQgQX0nNvlG1hUEhvC0ouNmoJq32yclQko+n67bc7A==",
+      "path": "stbtruetypesharp/1.24.7",
+      "hashPath": "stbtruetypesharp.1.24.7.nupkg.sha512"
+    },
+    "Aether.Atlas/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Aether.Graphics/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Aether.Shaders.Deferred/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Aether.Shaders.FXAA/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Aether.Shaders.InfiniteGrid/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
