@@ -1,0 +1,8 @@
+{
+  "CameraMoveRight" : 76,
+  "CameraMoveLeft" : 74,
+  "CameraMoveUp" : 73,
+  "CameraMoveDown" : 75,
+  "CameraZoomIn" : 187,
+  "CameraZoomOut" : 189
+}

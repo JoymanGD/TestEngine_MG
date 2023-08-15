@@ -1,4 +1,3 @@
-C:\Users\joyma\Desktop\MG_TestEngine\bin\Debug\net6.0\Content\Effects\TestShader.fx
 C:\Users\joyma\Desktop\MG_TestEngine\bin\Debug\net6.0\Content\Effects\TestShader.xnb
 C:\Users\joyma\Desktop\MG_TestEngine\bin\Debug\net6.0\Content\Fonts\Default.xnb
 C:\Users\joyma\Desktop\MG_TestEngine\bin\Debug\net6.0\Content\Models\byBulletMan_v_3.xnb

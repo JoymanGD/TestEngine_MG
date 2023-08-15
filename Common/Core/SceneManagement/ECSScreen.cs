@@ -25,21 +25,25 @@ namespace Common.ECS.SceneManagement
             SetSystems();
         }
 
-        public void SetSystems(){
+        public void SetSystems()
+        {
             UpdateSystems = InitializeUpdateSystems();
             DrawSystems = InitializeDrawSystems();
         }
 
-        public override void Update(GameTime gameTime) {
-            if(!EntitiesInitialized){
+        public override void Update(GameTime gameTime)
+        {
+            UpdateSystems.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            if(!EntitiesInitialized)
+            {
                 SetStartEntities();
                 EntitiesInitialized = true;
             }
             
-            UpdateSystems.Update(gameTime);
-        }
-
-        public override void Draw(GameTime gameTime) {
             GraphicsDevice.DepthStencilState = DepthStencilState.Default;
             DrawSystems.Update(gameTime);
         }

@@ -2,35 +2,27 @@ using Microsoft.Xna.Framework;
 
 namespace Common.ECS.Components
 {
-    public class Light
+    public struct Light
     {
-        public Color DiffuseColor { get; private set; }
-        public float Intensity { get; private set; }
-        public float Range { get; private set; }
-        public int ID;
         public LightType Type;
+        public Color Color;
+        public float Radius;
+        public float Intensity;
         public bool IsActive;
 
-        public Light(LightType _type, Color _diffuseColor, float _intensity, bool _isActive = true, int _id = 0){
-            Type = _type;
-            DiffuseColor = _diffuseColor;
-            Intensity = _intensity;
-            ID = _id;
-            IsActive = _isActive;
-            Range = 1;
-        }
-
-        public Light(LightType _type, Color _diffuseColor, float _intensity, float _range, bool _isActive = true, int _id = 0){
-            Type = _type;
-            DiffuseColor = _diffuseColor;
-            Intensity = _intensity;
-            ID = _id;
-            IsActive = _isActive;
-            Range = _range;
+        public Light(LightType type, Color color, float intensity = 1, float radius = 1, bool isActive = true)
+        {
+            IsActive = isActive;
+            Type = type;
+            Color = color;
+            Intensity = intensity;
+            Radius = radius;
         }
     }
 
-    public enum LightType{
-        Point, Directional
+    public enum LightType
+    {
+        Directional = 0,
+        Point = 1
     }
 }

@@ -3,11 +3,11 @@
   <SourceFile>c:/Users/joyma/Desktop/MG_TestEngine/Content/Models/Mage.fbx</SourceFile>
   <SourceTime>2023-08-10T22:02:05.1385876+03:00</SourceTime>
   <DestFile>c:/Users/joyma/Desktop/MG_TestEngine/Content/bin/DesktopGL/Models/Mage.xnb</DestFile>
-  <DestTime>2023-08-10T22:59:38.752013+03:00</DestTime>
+  <DestTime>2023-08-15T21:54:32.2097745+03:00</DestTime>
   <Importer>FbxImporter</Importer>
   <ImporterTime>2023-03-19T22:06:30+02:00</ImporterTime>
-  <Processor>ModelProcessor</Processor>
-  <ProcessorTime>2023-03-19T22:06:30+02:00</ProcessorTime>
+  <Processor>RawModelProcessor</Processor>
+  <ProcessorTime>2023-08-10T22:02:05.049546+03:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>0,0,0,0</Value>

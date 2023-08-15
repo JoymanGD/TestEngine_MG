@@ -1,4 +1,5 @@
 using System;
+using System.Windows;
 using Common.Settings;
 using Microsoft.Xna.Framework;
 
@@ -37,7 +38,8 @@ namespace Common.ECS.Components
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #region Constructors
 
-        public Transform(Vector3 _position){
+        public Transform(Vector3 _position)
+        {
             WorldMatrix = Matrix.Identity;
             position = _position;
             rotation = Quaternion.Identity;
@@ -55,7 +57,8 @@ namespace Common.ECS.Components
             UpdateWorldMatrix();
         }
 
-        public Transform(Vector3 _position, Vector3 _forward){
+        public Transform(Vector3 _position, Vector3 _forward)
+        {
             WorldMatrix = Matrix.Identity;
             position = _position;
             rotation = Quaternion.Identity;
@@ -64,7 +67,8 @@ namespace Common.ECS.Components
             LookAt(_forward + _position);
         }
 
-        public Transform(Vector3 _position, Vector3 _forward, Vector3 _scale){
+        public Transform(Vector3 _position, Vector3 _forward, Vector3 _scale)
+        {
             WorldMatrix = Matrix.Identity;
             position = _position;
             rotation = Quaternion.Identity;
@@ -73,7 +77,8 @@ namespace Common.ECS.Components
             LookAt(_forward + _position);
         }
 
-        public Transform(Vector3 _position, Vector3 _forward, float _scale){
+        public Transform(Vector3 _position, Vector3 _forward, float _scale)
+        {
             WorldMatrix = Matrix.Identity;
             position = _position;
             rotation = Quaternion.Identity;
@@ -85,14 +90,16 @@ namespace Common.ECS.Components
 #endregion
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        void UpdateWorldMatrix(){ //ISRT            
+        void UpdateWorldMatrix()
+        { //ISRT            
             WorldMatrix = Matrix.Identity;
             WorldMatrix *= Matrix.CreateScale(Scale);
             WorldMatrix *= Matrix.CreateFromQuaternion(Rotation);
             WorldMatrix *= Matrix.CreateTranslation(Position);
         }
 
-        public void Translate(Vector3 _translation, bool _updateMatrix = true){
+        public void Translate(Vector3 _translation, bool _updateMatrix = true)
+        {
             var oldPosition = position;
             position += _translation;
             DeltaPosition = position - oldPosition;
@@ -101,11 +108,13 @@ namespace Common.ECS.Components
                 UpdateWorldMatrix();
         }
 
-        public void Translate(float _x, float _y, float _z){
+        public void Translate(float _x, float _y, float _z)
+        {
             Translate(new Vector3(_x, _y, _z));
         }
 
-        public void SetPosition(Vector3 _newPosition, bool _updateMatrix = true){
+        public void SetPosition(Vector3 _newPosition, bool _updateMatrix = true)
+        {
             var oldPosition = position;
             position = _newPosition;
             DeltaPosition = position - oldPosition;
@@ -114,7 +123,8 @@ namespace Common.ECS.Components
                 UpdateWorldMatrix();
         }
 
-        public void Rotate(Quaternion _rotation, bool _updateMatrix = true){
+        public void Rotate(Quaternion _rotation, bool _updateMatrix = true)
+        {
             rotation *= _rotation;
             
             if(_updateMatrix)
@@ -131,21 +141,25 @@ namespace Common.ECS.Components
             }
         }
 
-        public void Rotate(Vector3 _rotation){
+        public void Rotate(Vector3 _rotation)
+        {
             Rotate(Quaternion.CreateFromYawPitchRoll(_rotation.X, _rotation.Y, _rotation.Z));
         }
 
-        public void RotateSmooth(Vector3 _rotation, float _smoothness){
+        public void RotateSmooth(Vector3 _rotation, float _smoothness)
+        {
             var newRotation = Quaternion.CreateFromYawPitchRoll(_rotation.X, _rotation.Y, _rotation.Z);
             var newSmoothedRotation = Quaternion.Lerp(rotation, newRotation, _smoothness);
             Rotate(newSmoothedRotation);
         }
 
-        public void Rotate(Vector3 _axis, float _angle, bool _updateMatrix = true){
+        public void Rotate(Vector3 _axis, float _angle, bool _updateMatrix = true)
+        {
             Rotate(Quaternion.CreateFromAxisAngle(_axis, _angle), _updateMatrix);
         }
 
-        public void RotateAroundPoint(Vector3 _point, Vector3 _axis, float _angle){
+        public void RotateAroundPoint(Vector3 _point, Vector3 _axis, float _angle)
+        {
             var direction = _point - Position;
             var distance = direction.Length();
             
@@ -155,7 +169,8 @@ namespace Common.ECS.Components
             Translate(WorldMatrix.Backward * distance);
         }
 
-        public void RotateAroundPoint(Vector3 _point, Quaternion _rotation){
+        public void RotateAroundPoint(Vector3 _point, Quaternion _rotation)
+        {
             var direction = _point - Position;
             var directionNormalized = Vector3.Normalize(direction);
             var distance = direction.Length();
@@ -165,34 +180,37 @@ namespace Common.ECS.Components
             Translate(WorldMatrix.Backward * distance);
         }
 
-        public void SetScale(Vector3 _newScale, bool _updateMatrix = true){
+        public void SetScale(Vector3 _newScale, bool _updateMatrix = true)
+        {
             scale = _newScale;
             
             if(_updateMatrix)
                 UpdateWorldMatrix();
         }
 
-        public void SetScale(float _x, float _y, float _z){
+        public void SetScale(float _x, float _y, float _z)
+        {
             SetScale(new Vector3(_x, _y, _z));
         }
 
-        public void LookAt(Vector3 _targetPosition, bool _updateMatrix = true){
+        public void LookAt(Vector3 _targetPosition, bool _updateMatrix = true)
+        {
             var direction = Vector3.Normalize(_targetPosition - Position);
-            var up = Vector3.Up;
-
-            var dot = Vector3.Dot(direction, up);
-            if(dot > -1 && dot < 1){
-                var rotMatrix = Matrix.CreateWorld(Position, direction, up);
-                Quaternion rot;
-                rotMatrix.Decompose(out _, out rot, out _);
-                rotation = rot;
+            var up = Vector3.Cross(Forward, direction);
+            var dot = Vector3.Dot(direction, Forward);
+            // var angle = 1/MathF.Cos(Vector3.Dot(direction, Forward));
+            float angle = MathF.Atan2(up.Length(), dot);
+            var lookAtRotation = Quaternion.CreateFromAxisAngle(up, angle);
+            rotation *= lookAtRotation;
                 
-                if(_updateMatrix)
-                    UpdateWorldMatrix();
+            if(_updateMatrix)
+            {
+                UpdateWorldMatrix();
             }
         }
 
-        public void LookAtSmooth(Vector3 _targetPosition, float rotationSpeed, bool _updateMatrix = true){
+        public void LookAtSmooth(Vector3 _targetPosition, float rotationSpeed, bool _updateMatrix = true)
+        {
             var direction = Vector3.Normalize(_targetPosition - Position);
             var up = Vector3.Up;
 

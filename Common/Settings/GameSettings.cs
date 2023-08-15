@@ -19,8 +19,9 @@ namespace Common.Settings
         public IParallelRunner MainRunner;
         public ScreenManager ScreenManager;
         public SpriteBatch SpriteBatch;
-        public int DirectionalLightsCount = 0, PointLightsCount = 0;
         public Vector2 ScreenSize => new Vector2(Graphics.PreferredBackBufferWidth, Graphics.PreferredBackBufferHeight);
+        public Effect DefaultShader;
+
         public Vector2 CenterPosition
         {
             get
@@ -32,6 +33,11 @@ namespace Common.Settings
 
                 return centerPosition;
             }
+        }
+
+        public Effect GetDefaultShaderCopy()
+        {
+            return DefaultShader.Clone();
         }
 
         private Vector2 centerPosition;

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>c:/Users/joyma/Desktop/MG_TestEngine/Content/Effects/TestShader.fx</SourceFile>
-  <SourceTime>2023-08-10T22:15:46.9133757+03:00</SourceTime>
+  <SourceTime>2023-08-16T00:12:00.9966715+03:00</SourceTime>
   <DestFile>c:/Users/joyma/Desktop/MG_TestEngine/Content/bin/DesktopGL/Effects/TestShader.xnb</DestFile>
-  <DestTime>2023-08-10T22:15:55.1344786+03:00</DestTime>
+  <DestTime>2023-08-16T00:12:04.5290369+03:00</DestTime>
   <Importer>EffectImporter</Importer>
   <ImporterTime>2023-03-19T22:06:30+02:00</ImporterTime>
   <Processor>EffectProcessor</Processor>
   <ProcessorTime>2023-03-19T22:06:30+02:00</ProcessorTime>
   <Parameters>
     <Key>DebugMode</Key>
-    <Value>Debug</Value>
+    <Value>Auto</Value>
   </Parameters>
   <Parameters>
     <Key>Defines</Key>

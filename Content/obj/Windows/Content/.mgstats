@@ -1,9 +1,0 @@
-Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"c:/Users/joyma/Desktop/MG_TestEngine/Content/Effects/TestShader.fx","c:/Users/joyma/Desktop/MG_TestEngine/Content/bin/Windows/Content/Effects/TestShader.xnb","EffectProcessor","CompiledEffectContent",4217,50046,0.6256177
-"c:/Users/joyma/Desktop/MG_TestEngine/Content/Fonts/Default.spritefont","c:/Users/joyma/Desktop/MG_TestEngine/Content/bin/Windows/Content/Fonts/Default.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21538,0.1634285
-"c:/Users/joyma/Desktop/MG_TestEngine/Content/Models/byBulletMan_v_3.fbx","c:/Users/joyma/Desktop/MG_TestEngine/Content/bin/Windows/Content/Models/byBulletMan_v_3.xnb","ModelProcessor","ModelContent",205276,228924,0.3060694
-"c:/Users/joyma/Desktop/MG_TestEngine/Content/Models/byBulletMan_v_3_2.fbx","c:/Users/joyma/Desktop/MG_TestEngine/Content/bin/Windows/Content/Models/byBulletMan_v_3_2.xnb","ModelProcessor","ModelContent",205276,228924,0.1263971
-"c:/Users/joyma/Desktop/MG_TestEngine/Content/Models/Flemer.fbx","c:/Users/joyma/Desktop/MG_TestEngine/Content/bin/Windows/Content/Models/Flemer.xnb","ModelProcessor","ModelContent",302652,836909,0.154579
-"c:/Users/joyma/Desktop/MG_TestEngine/Content/Models/Ground.fbx","c:/Users/joyma/Desktop/MG_TestEngine/Content/bin/Windows/Content/Models/Ground.xnb","ModelProcessor","ModelContent",11532,800,0.0048396
-"c:/Users/joyma/Desktop/MG_TestEngine/Content/Models/Mage.fbx","c:/Users/joyma/Desktop/MG_TestEngine/Content/bin/Windows/Content/Models/Mage.xnb","CpuAnimatedModelProcessor","DynamicModelContent",534588,306762,0.4212123
-"c:/Users/joyma/Desktop/MG_TestEngine/Content/Models/Mastron.fbx","c:/Users/joyma/Desktop/MG_TestEngine/Content/bin/Windows/Content/Models/Mastron.xnb","ModelProcessor","ModelContent",493852,575543,0.1214419

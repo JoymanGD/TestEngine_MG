@@ -32,23 +32,28 @@ namespace Common.ECS.Components
             }
         }
 
-        public void SetHolding(string _key, bool _value){
+        public void SetHolding(string _key, bool _value)
+        {
             Holdings[_key] = _value;
         }
 
-        public void SetPressing(string _key, bool _value){
+        public void SetPressing(string _key, bool _value)
+        {
             Pressings[_key] = _value;
         }
 
-        public void SetUnpressing(string _key, bool _value){
+        public void SetUnpressing(string _key, bool _value)
+        {
             Unpressings[_key] = _value;
         }
 
-        public bool IsHolding(string _key){
+        public bool IsHolding(string _key)
+        {
             return Holdings[_key];
         }
 
-        public bool WasPressed(string _key){
+        public bool WasPressed(string _key)
+        {
             return Pressings[_key];
         }
 

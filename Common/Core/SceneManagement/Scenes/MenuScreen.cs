@@ -7,7 +7,7 @@ using Myra.Graphics2D;
 using Common.Settings;
 using FontStashSharp;
 using System.IO;
-using System;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Common.Core.Scenes
 {
@@ -28,6 +28,8 @@ namespace Common.Core.Scenes
 
             //grid.ShowGridLines = true;
             var fontSys = FontSystemFactory.Create(GameSettings.Instance.Game.GraphicsDevice, 400, 400);
+            var font = Content.Load<SpriteFont>("Fonts/Default");
+            
             fontSys.AddFont(File.ReadAllBytes(@"Content/Fonts/Default.otf"));
 
             var title = new Label

@@ -79,6 +79,7 @@ namespace Common
             settings.ScreenManager = ScreenManager;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             settings.SpriteBatch = spriteBatch;
+            settings.DefaultShader = Content.Load<Effect>("Effects/TestShader");
         }
 
         private void StartGame()
