@@ -10,69 +10,73 @@ using Common.Settings;
 using System;
 using Microsoft.Xna.Framework.Input;
 
-namespace Common.ECS.Systems
+namespace Common.ECS.Systems;
+
+[With(typeof(Components.Core))]
+[With(typeof(Input))]
+public partial class InputSystem : AEntitySetSystem<GameTime>
 {
-    [With(typeof(Components.Core))]
-    [With(typeof(Input))]
-    public partial class InputSystem : AEntitySetSystem<GameTime>
+    public static MouseStateExtended MouseState;
+    public static KeyboardStateExtended KeyboardState;
+    public static Vector2 MousePosition => mousePosition.ToVector2();
+    public static Vector2 MouseDelta => mouseDelta.ToVector2();
+    public static float ScrollWheelValue => scrollWheelValue;
+
+    private static Point oldMousePosition;
+    private static Point mousePosition;
+    private static Point mouseDelta;
+    private static float scrollWheelValue;
+    private IParallelRunner runner;
+    private World world;
+
+    private float AdvancedModulo(float Input, float Max)
     {
-        public static MouseStateExtended MouseState;
-        public static KeyboardStateExtended KeyboardState;
-        public static Vector2 MousePosition => mousePosition.ToVector2();
-        public static Vector2 MouseDelta => mouseDelta.ToVector2();
-        public static float ScrollWheelValue => scrollWheelValue;
+        return Input > 0 ? Input % Max : Max - Math.Abs(Input) % Max;
+    }
 
-        private static Point oldMousePosition;
-        private static Point mousePosition;
-        private static Point mouseDelta;
-        private static float scrollWheelValue;
-        private IParallelRunner runner;
-        private World world;
+    private Vector2 AdvancedModulo(Vector2 Input, Vector2 Max)
+    {
+        return new Vector2(AdvancedModulo(Input.X, Max.X), AdvancedModulo(Input.Y, Max.Y));
+    }
+
+    private Point AdvancedModulo(Point Input, Point Max)
+    {
+        return AdvancedModulo(Input.ToVector2(), Max.ToVector2()).ToPoint();
+    }
+    
+    public InputSystem(World world, IParallelRunner runner) : base(world, CreateEntityContainer, null, 0)
+    {
+        this.world = world;
+        this.runner = runner;
+    }
+
+    [Update]
+    private void Update(ref Components.Core main, ref Input input)
+    {
+        UpdateStates();
         
-        public InputSystem(World _world, IParallelRunner _runner) : base(_world, CreateEntityContainer, null, 0){
-            world = _world;
-            runner = _runner;
-        }
+        mousePosition = MouseState.Position;
+        mouseDelta = mousePosition - oldMousePosition;
+        scrollWheelValue = MathHelper.Clamp(MouseState.DeltaScrollWheelValue, -1, 1) * -1;
 
-        [Update]
-        private void Update(ref Components.Core main, ref Input input)
+        var screenSize = GameSettings.Instance.ScreenSize.ToPoint();
+        
+        switch (input.CursorState)
         {
-            UpdateStates();
-
-            oldMousePosition = mousePosition;
-            mousePosition = MouseState.Position;
-
-            if(!input.ClipCursor)
-            {
-                var screenSize = GameSettings.Instance.ScreenSize.ToPoint();
-
-                if(mousePosition.X <= 0)
-                {
-                    Mouse.SetPosition(screenSize.X-1, mousePosition.Y);
-                    UpdateStates();
-                    oldMousePosition = mousePosition = MouseState.Position;
-                }
-                else if(mousePosition.X >= screenSize.X)
-                {
-                    Mouse.SetPosition(1, mousePosition.Y);
-                    UpdateStates();
-                    oldMousePosition = mousePosition = MouseState.Position;
-                }
-            }
-
-            mouseDelta = mousePosition - oldMousePosition;
-            scrollWheelValue = MathHelper.Clamp(MouseState.DeltaScrollWheelValue, -1, 1) * -1;
-            
-            // if(mouseState.DeltaPosition != Point.Zero)
-            // {
-            //     Console.WriteLine($"pos: {MousePosition}, delta: {MouseDelta}");
-            // }
+            case CursorState.None:
+                break;
+            case CursorState.Lock:
+                mousePosition = new Point(screenSize.X / 2, screenSize.Y / 2);
+                Mouse.SetPosition(mousePosition.X, mousePosition.Y);
+                break;
         }
+        
+        oldMousePosition = mousePosition;
+    }
 
-        private void UpdateStates()
-        {
-            MouseState = MouseExtended.GetState();
-            KeyboardState = KeyboardExtended.GetState();
-        }
+    private void UpdateStates()
+    {
+        MouseState = MouseExtended.GetState();
+        KeyboardState = KeyboardExtended.GetState();
     }
 }

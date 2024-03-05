@@ -7,6 +7,7 @@ using DefaultEcs.System;
 using Common.ECS.SceneManagement;
 using Microsoft.Xna.Framework.Input;
 using System.Runtime.InteropServices;
+using Light = Common.ECS.Components.Light;
 
 namespace Common.Core.Scenes
 {
@@ -29,6 +30,7 @@ namespace Common.Core.Scenes
         public override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
+            
             base.Draw(gameTime);
         }
 
@@ -38,7 +40,12 @@ namespace Common.Core.Scenes
 
             var coreEntity = World.CreateEntity();
             coreEntity.Set(new ECS.Components.Core());
-            coreEntity.Set(new Input(false));
+            coreEntity.Set(new Input(CursorState.Lock));
+
+            GameSettings.Instance.OnWindowFocusChanged += (focused) =>
+            {
+                coreEntity.Set(new Input(focused ? CursorState.Lock : CursorState.None));
+            };
 
             var player = World.CreateEntity();
             var playerTransform = new Transform(Vector3.Zero, 9);
@@ -60,25 +67,26 @@ namespace Common.Core.Scenes
             camera.Set(new Controller());
 
             var player2 = World.CreateEntity();
-            var playerTransform2 = new Transform(new Vector3(-4, -9, 0), 9);
+            var playerTransform2 = new Transform(new Vector3(-4, 0, 0), 9);
             player2.Set(playerTransform2);
-            player2.Set(new ModelRenderer(Content.Load<Model>("Models/Flemer")));
+            var flemer = Content.Load<Model>("Models/Flemer");
+            player2.Set(new ModelRenderer(flemer));
             player2.Set(new Material(GameSettings.Instance.GetDefaultShaderCopy()));
 
             var ground = World.CreateEntity();
-            ground.Set(new Transform(new Vector3(0, 0, 0)));
+            ground.Set(new Transform(new Vector3(0, 0, 0), new Vector3(0, 0, 1), new Vector3(10, 1, 10)));
             ground.Set(new ModelRenderer(Content.Load<Model>("Models/Ground")));
             ground.Set(new Material(GameSettings.Instance.GetDefaultShaderCopy(), specular: 0));
 
             var firstLight = World.CreateEntity();
-            var firstPosition = new Vector3(0, 20, 0);
-            firstLight.Set(new Transform(firstPosition, Vector3.Forward));
+            var firstPosition = new Vector3(0, 600, 0);
+            firstLight.Set(new Transform(firstPosition, new Vector3(.5f,-.9f, 1)));
             firstLight.Set(new Light(LightType.Directional, Color.Green, .06f));
 
-            var secondLight = World.CreateEntity();
-            var secondPosition = new Vector3(0, 0, 20);
-            secondLight.Set(new Transform(secondPosition, (Vector3.Forward + Vector3.Down) / 2));
-            secondLight.Set(new Light(LightType.Directional, Color.AntiqueWhite, .2f));
+            // var secondLight = World.CreateEntity();
+            // var secondPosition = new Vector3(0, 0, 20);
+            // secondLight.Set(new Transform(secondPosition, (Vector3.Forward + Vector3.Down) / 2));
+            // secondLight.Set(new Light(LightType.Directional, Color.AntiqueWhite, .2f));
 
             var thirdLight = World.CreateEntity();
             var thirdPosition = new Vector3(20, 7, 0);
@@ -124,6 +132,7 @@ namespace Common.Core.Scenes
             return new SequentialSystem<GameTime>
             (
                 new ShaderInitializationSystem(World, MainRunner),
+                new ShadowMapGenerationSystem(World),
                 new ForwardRenderingSystem(World, MainRunner),
                 new ProfilingSystem(SpriteBatch, World, MainRunner)
             );

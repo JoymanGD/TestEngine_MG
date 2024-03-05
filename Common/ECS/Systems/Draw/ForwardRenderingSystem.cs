@@ -6,6 +6,7 @@ using Common.ECS.Components;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.Linq;
+using Common.Helpers;
 using Common.Settings;
 
 namespace Common.ECS.Systems
@@ -16,12 +17,11 @@ namespace Common.ECS.Systems
     public partial class ForwardRenderingSystem : AEntitySetSystem<GameTime>
     {
         private IParallelRunner Runner;
-        List<LightData> lightDatas;
+        private List<LightData> LightDatas = new ();
         
         public ForwardRenderingSystem(World world, IParallelRunner runner) : base(world, CreateEntityContainer, null, 0)
         {
             Runner = runner;
-            lightDatas = new List<LightData>();
         }
 
         [Update]
@@ -29,48 +29,44 @@ namespace Common.ECS.Systems
         {
             var cameraEntities = World.GetEntities().With<Camera>().With<Transform>().AsEnumerable().ToArray();
             var lightsEntities = World.GetEntities().With<Light>().With<Transform>().AsEnumerable().ToArray();
+            var graphicsDevice = GameSettings.Instance.GraphicsDevice;
 
-            var lightDatas = GetLightDatas(lightsEntities);
-            var lightsAmount = lightDatas.Count;
+            LightDatas = Light.ConstructLightDataList(lightsEntities);
+            
+            var lightsAmount = LightDatas.Count;
 
+            //Rendering
             foreach(var camera in cameraEntities)
             {
                 var cameraComponent = camera.Get<Camera>();
                 var cameraTransfromComponent = camera.Get<Transform>();
 
+                var viewProjection = cameraComponent.ViewMatrix * cameraComponent.ProjectionMatrix;
+
                 foreach (ModelMesh mesh in modelRenderer.Model.Meshes)
                 {
-                    var world = mesh.ParentBone.Transform * transform.WorldMatrix;
+                    var WorldMatrix = mesh.ParentBone.Transform * transform.WorldMatrix;
 
                     foreach (Effect effect in mesh.Effects)
                     {
-                        effect.Parameters["WorldMatrix"].SetValue(world);
-                        effect.Parameters["ViewMatrix"].SetValue(cameraComponent.ViewMatrix);
-                        effect.Parameters["ProjectionMatrix"].SetValue(cameraComponent.ProjectionMatrix);
-                        effect.Parameters["CameraPosition"].SetValue(cameraTransfromComponent.Position);
-                        effect.Parameters["MainTexture"].SetValue(material.Texture);
-                        effect.Parameters["Diffuse"].SetValue(material.Diffuse.ToVector3());
-                        effect.Parameters["Ambient"].SetValue(material.Ambient);
-                        effect.Parameters["Specular"].SetValue(material.Specular);
+                        MonogameEffectFunctions.SetParameterSafe(effect, "WorldMatrix", WorldMatrix);
+                        MonogameEffectFunctions.SetParameterSafe(effect, "ViewProjectionMatrix", viewProjection);
+                        MonogameEffectFunctions.SetParameterSafe(effect, "LightViewProjection", LightDatas[0].ViewProjection);
+                        MonogameEffectFunctions.SetParameterSafe(effect, "CameraPosition", cameraTransfromComponent.Position);
+                        MonogameEffectFunctions.SetParameterSafe(effect, "Diffuse", material.Diffuse.ToVector3());
+                        MonogameEffectFunctions.SetParameterSafe(effect, "Ambient", material.Ambient);
+                        MonogameEffectFunctions.SetParameterSafe(effect, "Specular", material.Specular);
 
-                        //set lights amount parameter
-                        effect.Parameters["ActiveLights"].SetValue(lightsAmount);
+                        MonogameEffectFunctions.SetParameterSafe(effect, "MainTexture", material.Texture);
 
-                        //clear all lights data in shader
-                        ClearShaderLightData(effect);
+                        MonogameEffectFunctions.SetParameterSafe(effect, "ShadowMap", ShadowMapGenerationSystem.ShadowMap);
+                        //set lights amount
+                        MonogameEffectFunctions.SetParameterSafe(effect, "NumLights", lightsAmount);
 
-                        //set actual lights data
-                        for (int i = 0; i < lightsAmount; i++)
-                        {
-                            var data = lightDatas[i];
-
-                            effect.Parameters["LightTypes"].Elements[i].SetValue(data.LightType);
-                            effect.Parameters["LightPositions"].Elements[i].SetValue(data.Position);
-                            effect.Parameters["LightDirections"].Elements[i].SetValue(data.Direction);
-                            effect.Parameters["LightColors"].Elements[i].SetValue(data.Color);
-                            effect.Parameters["LightRadii"].Elements[i].SetValue(data.Radius);
-                            effect.Parameters["LightIntensities"].Elements[i].SetValue(data.Intensity);
-                        }
+                        //set lights buffer
+                        var lightsBuffer = new StructuredBuffer(graphicsDevice, typeof(LightData), lightsAmount, BufferUsage.None, ShaderAccess.Read);
+                        lightsBuffer.SetData(LightDatas.ToArray());
+                        MonogameEffectFunctions.SetParameterSafe(effect, "Lights", lightsBuffer);
 
                         effect.Techniques[0].Passes[0].Apply();
                     }
@@ -79,53 +75,5 @@ namespace Common.ECS.Systems
                 }
             }
         }
-
-        private void ClearShaderLightData(Effect effect)
-        {
-            effect.Parameters["LightTypes"].SetValue(new int[0]);
-            effect.Parameters["LightPositions"].SetValue(new Vector4[0]);
-            effect.Parameters["LightDirections"].SetValue(new Vector3[0]);
-            effect.Parameters["LightColors"].SetValue(new Vector3[0]);
-            effect.Parameters["LightRadii"].SetValue(new float[0]);
-            effect.Parameters["LightIntensities"].SetValue(new float[0]);
-        }
-
-        private List<LightData> GetLightDatas(Entity[] lightsEntities)
-        {
-            lightDatas.Clear();
-
-            for (int i = 0; i < lightsEntities.Length; i++)
-            {
-                var lightEntity = lightsEntities[i];
-
-                var lightComponent = lightEntity.Get<Light>();
-                var transformComponent = lightEntity.Get<Transform>();
-
-                if(lightComponent.IsActive)
-                {
-                    lightDatas.Add(new LightData()
-                    {
-                        LightType = (int)lightComponent.Type,
-                        Position = new Vector4(transformComponent.Position, 1),
-                        Direction = transformComponent.Forward,
-                        Color = lightComponent.Color.ToVector3(),
-                        Radius = lightComponent.Radius,
-                        Intensity = lightComponent.Intensity,
-                    });
-                }
-            }
-
-            return lightDatas;
-        }
-    }
-
-    internal struct LightData
-    {
-        public int LightType;
-        public Vector4 Position;
-        public Vector3 Direction;
-        public Vector3 Color;
-        public float Radius;
-        public float Intensity;
     }
 }

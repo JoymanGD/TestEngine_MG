@@ -38,53 +38,54 @@ namespace Common.ECS.Components
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #region Constructors
 
-        public Transform(Vector3 _position)
+        public Transform(Vector3 position)
         {
             WorldMatrix = Matrix.Identity;
-            position = _position;
+            this.position = position;
             rotation = Quaternion.Identity;
             scale = Vector3.One;
             RotationSpeed = 1;
             UpdateWorldMatrix();
         }
 
-        public Transform(Vector3 _position, float rotationSpeed){
+        public Transform(Vector3 position, float rotationSpeed)
+        {
             WorldMatrix = Matrix.Identity;
-            position = _position;
+            this.position = position;
             rotation = Quaternion.Identity;
             scale = Vector3.One;
             RotationSpeed = rotationSpeed;
             UpdateWorldMatrix();
         }
 
-        public Transform(Vector3 _position, Vector3 _forward)
+        public Transform(Vector3 position, Vector3 forward)
         {
             WorldMatrix = Matrix.Identity;
-            position = _position;
+            this.position = position;
             rotation = Quaternion.Identity;
             scale = Vector3.One;
             RotationSpeed = 1;
-            LookAt(_forward + _position);
+            LookAt(forward + position);
         }
 
-        public Transform(Vector3 _position, Vector3 _forward, Vector3 _scale)
+        public Transform(Vector3 position, Vector3 forward, Vector3 scale)
         {
             WorldMatrix = Matrix.Identity;
-            position = _position;
+            this.position = position;
             rotation = Quaternion.Identity;
-            scale = _scale;
+            this.scale = scale;
             RotationSpeed = 1;
-            LookAt(_forward + _position);
+            LookAt(forward + position);
         }
 
-        public Transform(Vector3 _position, Vector3 _forward, float _scale)
+        public Transform(Vector3 position, Vector3 forward, float scale)
         {
             WorldMatrix = Matrix.Identity;
-            position = _position;
+            this.position = position;
             rotation = Quaternion.Identity;
-            scale = new Vector3(_scale, _scale, _scale);
+            this.scale = new Vector3(scale, scale, scale);
             RotationSpeed = 1;
-            LookAt(_forward + _position);
+            LookAt(forward + position);
         }
 
 #endregion

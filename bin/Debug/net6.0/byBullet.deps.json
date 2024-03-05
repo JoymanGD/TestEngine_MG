@@ -10,10 +10,8 @@
         "dependencies": {
           "DefaultEcs": "0.15.1",
           "DefaultEcs.Analyzer": "0.15.0",
-          "MonoGame.Content.Builder.Task": "3.8.1.303",
           "MonoGame.Content.Builder.Task.Compute": "3.8.2",
           "MonoGame.Extended": "3.8.0",
-          "MonoGame.Extended.Graphics": "3.8.0",
           "MonoGame.Extended.Input": "3.8.0",
           "MonoGame.Framework.Compute.DesktopGL": "3.8.2",
           "Myra": "1.2.3",
@@ -73,7 +71,6 @@
           }
         }
       },
-      "MonoGame.Content.Builder.Task/3.8.1.303": {},
       "MonoGame.Content.Builder.Task.Compute/3.8.2": {},
       "MonoGame.Extended/3.8.0": {
         "dependencies": {
@@ -81,17 +78,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/MonoGame.Extended.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "MonoGame.Extended.Graphics/3.8.0": {
-        "dependencies": {
-          "MonoGame.Extended": "3.8.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/MonoGame.Extended.Graphics.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -285,13 +271,6 @@
       "path": "info.lundin.math.dll/1.2.6",
       "hashPath": "info.lundin.math.dll.1.2.6.nupkg.sha512"
     },
-    "MonoGame.Content.Builder.Task/3.8.1.303": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-9Ilzzje62LhWElbPNEl7vh7XsRSbze+lvCJdZtTZUGu48FRgvYN6THURwIB9PN98EI33/Wnf6iuShNUtD7hL4Q==",
-      "path": "monogame.content.builder.task/3.8.1.303",
-      "hashPath": "monogame.content.builder.task.3.8.1.303.nupkg.sha512"
-    },
     "MonoGame.Content.Builder.Task.Compute/3.8.2": {
       "type": "package",
       "serviceable": true,
@@ -305,13 +284,6 @@
       "sha512": "sha512-FDPoUOFtslGNHCWSqjKD0C67RYN6Stb6NWnn+rkCmtkPBZlE6LvwuGyQBkHUkAMANO3LzO/Wsz9etMhwZLInqg==",
       "path": "monogame.extended/3.8.0",
       "hashPath": "monogame.extended.3.8.0.nupkg.sha512"
-    },
-    "MonoGame.Extended.Graphics/3.8.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-vSl1+4dFNKnOqHUB1SRQ7IdWXNagJJI+KKCQmaSyfon99/kumsChQ9iZXltEaUO3ArB8QGnblii/PXq/bsLUHQ==",
-      "path": "monogame.extended.graphics/3.8.0",
-      "hashPath": "monogame.extended.graphics.3.8.0.nupkg.sha512"
     },
     "MonoGame.Extended.Input/3.8.0": {
       "type": "package",

@@ -17,6 +17,7 @@ namespace Common.ECS.Systems
         private World world;
         private bool lightsOn = true;
         private int SelectedLightIndex = -1;
+        private const float RotationSpeed = .01f;
         
         public DebugSystem(World _world, IParallelRunner _runner) : base(_world, CreateEntityContainer, null, 0)
         {
@@ -38,9 +39,9 @@ namespace Common.ECS.Systems
                     lightsOn = true;
                 }
 
-                var lights = World.Get<Light>();
+                var lights = World.Get<Components.Light>();
 
-                foreach(ref Light item in lights)
+                foreach(ref Components.Light item in lights)
                 {
                     item.IsActive = lightsOn;
                 }
@@ -48,7 +49,7 @@ namespace Common.ECS.Systems
             
             if(controller.IsHolding("Debug_LightSelection"))
             {
-                var lights = World.Get<Light>();
+                var lights = World.Get<Components.Light>();
 
                 int lightIndex = -1;
 
@@ -99,13 +100,13 @@ namespace Common.ECS.Systems
                     controller.IsHolding("Debug_ArrowUp") ||
                     controller.IsHolding("Debug_ArrowDown")))
                 {
-                    var lightsEntities = World.GetEntities().With<Light>().With<Transform>().AsEnumerable().ToArray();
+                    var lightsEntities = World.GetEntities().With<Components.Light>().With<Transform>().AsEnumerable().ToArray();
 
                     var inputVector = controller.GetInputVector("Debug_ArrowLeft", "Debug_ArrowRight", "Debug_ArrowUp", "Debug_ArrowDown");
 
                     if(controller.IsHolding("Debug_Shift"))
                     {
-                        lightsEntities[SelectedLightIndex].Get<Transform>().Rotation *= Quaternion.CreateFromYawPitchRoll(inputVector.X, inputVector.Y, 0);
+                        lightsEntities[SelectedLightIndex].Get<Transform>().Rotation *= Quaternion.CreateFromYawPitchRoll(inputVector.X * RotationSpeed, inputVector.Y * RotationSpeed, 0);
                         Console.WriteLine($"Light_{SelectedLightIndex} rotation changed to: {lightsEntities[SelectedLightIndex].Get<Transform>().Rotation}");
                     }
                     else if(controller.IsHolding("Debug_Control"))
@@ -115,10 +116,10 @@ namespace Common.ECS.Systems
                     }
                     else if(controller.IsHolding("Debug_Alt"))
                     {
-                        var lastColor = lightsEntities[SelectedLightIndex].Get<Light>().Color.ToVector3();
+                        var lastColor = lightsEntities[SelectedLightIndex].Get<Components.Light>().Color.ToVector3();
                         var newColor = new Color(new Vector4(lastColor.X + inputVector.X/100, lastColor.Y + inputVector.Y/100, 0f, 0f));
-                        lightsEntities[SelectedLightIndex].Get<Light>().Color = newColor;
-                        Console.WriteLine($"Light_{SelectedLightIndex} color changed to: {lightsEntities[SelectedLightIndex].Get<Light>().Color}");
+                        lightsEntities[SelectedLightIndex].Get<Components.Light>().Color = newColor;
+                        Console.WriteLine($"Light_{SelectedLightIndex} color changed to: {lightsEntities[SelectedLightIndex].Get<Components.Light>().Color}");
                     }
                 }
             }

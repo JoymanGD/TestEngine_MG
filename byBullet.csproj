@@ -37,22 +37,19 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
-  <ItemGroup>
-    <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
-  </ItemGroup>
+<!--  <ItemGroup>-->
+<!--    <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />-->
+<!--  </ItemGroup>-->
   <ItemGroup>
     <PackageReference Include="DefaultEcs" Version="0.15.1" />
     <PackageReference Include="DefaultEcs.Analyzer" Version="0.15.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="MonoGame.Content.Builder.Task.Compute" Version="3.8.2" />
     <PackageReference Include="MonoGame.Extended" Version="3.8.0" />
-    <PackageReference Include="MonoGame.Extended.Graphics" Version="3.8.0" />
     <PackageReference Include="MonoGame.Extended.Input" Version="3.8.0" />
-    <!-- <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.0.1641" /> -->
-    <PackageReference Include="MonoGame.Framework.Compute.DesktopGL" Version="3.8.2.0" />
-    <PackageReference Include="MonoGame.Content.Builder.Task.Compute" Version="3.8.2.0" />
-    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
+    <PackageReference Include="MonoGame.Framework.Compute.DesktopGL" Version="3.8.2" />
     <PackageReference Include="Myra" Version="1.2.3" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

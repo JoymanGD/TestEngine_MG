@@ -19,7 +19,7 @@ namespace Common.ECS.Components
         public Material(Texture2D texture = null, float ambient = AMBIENT, float specular = SPECULAR)
         {
             Texture = texture;
-            Shader = GameSettings.Instance.DefaultShader;
+            Shader = GameSettings.Instance.ForwardRenderingShader;
             Diffuse = DIFFUSE;
             Ambient = ambient;
             Specular = specular;
@@ -37,7 +37,7 @@ namespace Common.ECS.Components
         public Material(Color diffuse, Texture2D texture = null, float ambient = AMBIENT, float specular = SPECULAR)
         {
             Texture = texture;
-            Shader = GameSettings.Instance.DefaultShader;
+            Shader = GameSettings.Instance.ForwardRenderingShader;
             Diffuse = diffuse;
             Ambient = ambient;
             Specular = specular;

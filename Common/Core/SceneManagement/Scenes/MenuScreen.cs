@@ -1,5 +1,3 @@
-using MonoGame.Extended.Screens;
-using MonoGame.Extended.Screens.Transitions;
 using Microsoft.Xna.Framework;
 using Myra;
 using Myra.Graphics2D.UI;
@@ -7,7 +5,10 @@ using Myra.Graphics2D;
 using Common.Settings;
 using FontStashSharp;
 using System.IO;
+using Common.Helpers;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended.Screens;
+using MonoGame.Extended.Screens.Transitions;
 
 namespace Common.Core.Scenes
 {

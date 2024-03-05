@@ -4,11 +4,17 @@ namespace Common.ECS.Components
 {
     public struct Input
     {
-        public bool ClipCursor;
+        public CursorState CursorState;
 
-        public Input(bool clipCursor)
+        public Input(CursorState cursorState)
         {
-            ClipCursor = clipCursor;
+            CursorState = cursorState;
         }
+    }
+
+    public enum CursorState
+    {
+        None = 0,
+        Lock = 1,
     }
 }

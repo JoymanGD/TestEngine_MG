@@ -8,19 +8,27 @@ namespace Common.ECS.Components
     {
         public Dictionary<string, int> Pairs { get; private set; }
 
-        public Bindings(string _fileName){
+        public Bindings(string fileName)
+        {
             Pairs = new Dictionary<string, int>();
-            InitializeBindings(_fileName);
+            InitializeBindings(fileName);
         }
 
-        void InitializeBindings(string _fileName){
-            var json = File.ReadAllText(@".\Content\Json\" + _fileName + ".json");
-
+        void InitializeBindings(string fileName)
+        {
+            var json = File.ReadAllText(@".\Content\Json\" + fileName + ".json");
+            
             var objects = JObject.Parse(json);
             var list = objects.AsJEnumerable();
+            
             foreach (var item in list)
             {
-                Pairs.Add(item.First.Path, item.First.Value<int>());
+                var firstElement = item.First;
+                
+                if (firstElement != null)
+                {
+                    Pairs.Add(firstElement.Path, firstElement.Value<int>());
+                }
             }
         }
     }
