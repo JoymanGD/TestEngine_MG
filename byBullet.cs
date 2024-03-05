@@ -4,12 +4,13 @@ using DefaultEcs;
 using Microsoft.Xna.Framework.Input;
 using DefaultEcs.Threading;
 using Common.Settings;
-using MonoGame.Extended.Screens;
-using MonoGame.Extended.Screens.Transitions;
 using Common.Core.Scenes;
 using Microsoft.Xna.Framework.Graphics;
 using FontStashSharp;
 using System.IO;
+using Common.Helpers;
+using MonoGame.Extended.Screens;
+using MonoGame.Extended.Screens.Transitions;
 using Myra;
 using Myra.Graphics2D.UI;
 using Myra.Graphics2D;
@@ -52,7 +53,7 @@ namespace Common
             Graphics.GraphicsProfile = GraphicsProfile.HiDef;
             
             Graphics.PreferredBackBufferWidth = 1600;
-            Graphics.PreferredBackBufferHeight = 900;
+            Graphics.PreferredBackBufferHeight = 1600;
             Graphics.IsFullScreen = false;
 
             //Other
@@ -69,17 +70,37 @@ namespace Common
         {
             //initialize GameSetting class
             var settings = GameSettings.Instance;
+
+            Activated += (sender, args) =>
+            {
+                if (settings.OnWindowFocusChanged != null)
+                {
+                    settings.OnWindowFocusChanged(true);
+                }
+            };
+
+            Deactivated += (sender, args) =>
+            {
+                if (settings.OnWindowFocusChanged != null)
+                {
+                    settings.OnWindowFocusChanged(false);
+                }
+            };
             
             settings.GraphicsDevice = GraphicsDevice;
             settings.Graphics = Graphics;
             settings.ContentManager = Content;
             settings.Game = this;
+            settings.GameWindow = Window;
             settings.World = new World();
             settings.MainRunner = new DefaultParallelRunner(Environment.ProcessorCount);
             settings.ScreenManager = ScreenManager;
             spriteBatch = new SpriteBatch(GraphicsDevice);
             settings.SpriteBatch = spriteBatch;
-            settings.DefaultShader = Content.Load<Effect>("Effects/TestShader");
+            settings.ForwardRenderingShader = Content.Load<Effect>("Effects/ForwardRendering");
+            settings.ShadowMapGenerationShader = GameSettings.Instance.ContentManager.Load<Effect>("Effects/ShadowMapGeneration");
+
+            Window.AllowUserResizing = true;
         }
 
         private void StartGame()

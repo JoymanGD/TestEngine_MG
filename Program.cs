@@ -8,7 +8,9 @@ namespace Common
         static void Main()
         {
             using (var game = new byBullet())
+            {
                 game.Run();
+            }
         }
     }
 }

@@ -13,71 +13,73 @@ namespace Common.ECS.Components
         public Dictionary<string, bool> Pressings { get; private set; }
         public Dictionary<string, bool> Unpressings { get; private set; }
 
-        public void Init(Bindings _bindings)
+        public void Init(Bindings bindings)
         {
             Holdings = new Dictionary<string, bool>();
             Pressings = new Dictionary<string, bool>();
             Unpressings = new Dictionary<string, bool>();
-            InitializeFlags(Holdings, _bindings);
-            InitializeFlags(Pressings, _bindings);
-            InitializeFlags(Unpressings, _bindings);
+            InitializeFlags(Holdings, bindings);
+            InitializeFlags(Pressings, bindings);
+            InitializeFlags(Unpressings, bindings);
         }
 
-        void InitializeFlags(Dictionary<string, bool> _dictionary, Bindings _bindings){
-            var pairs = _bindings.Pairs;
+        void InitializeFlags(Dictionary<string, bool> dictionary, Bindings bindings)
+        {
+            var pairs = bindings.Pairs;
 
             foreach (var pair in pairs)
             {
-                _dictionary.Add(pair.Key, false);
+                dictionary.Add(pair.Key, false);
             }
         }
 
-        public void SetHolding(string _key, bool _value)
+        public void SetHolding(string key, bool value)
         {
-            Holdings[_key] = _value;
+            Holdings[key] = value;
         }
 
-        public void SetPressing(string _key, bool _value)
+        public void SetPressing(string key, bool value)
         {
-            Pressings[_key] = _value;
+            Pressings[key] = value;
         }
 
-        public void SetUnpressing(string _key, bool _value)
+        public void SetUnpressing(string key, bool value)
         {
-            Unpressings[_key] = _value;
+            Unpressings[key] = value;
         }
 
-        public bool IsHolding(string _key)
+        public bool IsHolding(string key)
         {
-            return Holdings[_key];
+            return Holdings[key];
         }
 
-        public bool WasPressed(string _key)
+        public bool WasPressed(string key)
         {
-            return Pressings[_key];
+            return Pressings[key];
         }
 
-        public bool WasUnpressed(string _key){
-            return Unpressings[_key];
+        public bool WasUnpressed(string key)
+        {
+            return Unpressings[key];
         }
 
-        public Vector2 GetInputVector(string _left, string _right, string _up, string _down)
+        public Vector2 GetInputVector(string left, string right, string up, string down)
         {
             var result = Vector2.Zero;
 
-            if(IsHolding(_left))
+            if(IsHolding(left))
             {
                 result.X -= 1;
             }
-            if(IsHolding(_right))
+            if(IsHolding(right))
             {
                 result.X += 1;
             }
-            if(IsHolding(_down))
+            if(IsHolding(down))
             {
                 result.Y -= 1;
             }
-            if(IsHolding(_up))
+            if(IsHolding(up))
             {
                 result.Y += 1;
             }

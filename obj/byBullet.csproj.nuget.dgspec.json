@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joyma\\Desktop\\MG_TestEngine\\byBullet.csproj": {}
+    "C:\\Users\\Joyman\\Desktop\\Projects\\Monogame\\TestEngine_MG\\byBullet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joyma\\Desktop\\MG_TestEngine\\byBullet.csproj": {
+    "C:\\Users\\Joyman\\Desktop\\Projects\\Monogame\\TestEngine_MG\\byBullet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joyma\\Desktop\\MG_TestEngine\\byBullet.csproj",
+        "projectUniqueName": "C:\\Users\\Joyman\\Desktop\\Projects\\Monogame\\TestEngine_MG\\byBullet.csproj",
         "projectName": "byBullet",
-        "projectPath": "C:\\Users\\joyma\\Desktop\\MG_TestEngine\\byBullet.csproj",
-        "packagesPath": "C:\\Users\\joyma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joyma\\Desktop\\MG_TestEngine\\obj\\",
+        "projectPath": "C:\\Users\\Joyman\\Desktop\\Projects\\Monogame\\TestEngine_MG\\byBullet.csproj",
+        "packagesPath": "C:\\Users\\Joyman\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Joyman\\Desktop\\Projects\\Monogame\\TestEngine_MG\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\joyma\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Joyman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -48,19 +55,11 @@
               "target": "Package",
               "version": "[0.15.0, )"
             },
-            "MonoGame.Content.Builder.Task": {
-              "target": "Package",
-              "version": "[3.8.1.303, )"
-            },
             "MonoGame.Content.Builder.Task.Compute": {
               "target": "Package",
               "version": "[3.8.2, )"
             },
             "MonoGame.Extended": {
-              "target": "Package",
-              "version": "[3.8.0, )"
-            },
-            "MonoGame.Extended.Graphics": {
               "target": "Package",
               "version": "[3.8.0, )"
             },
@@ -88,12 +87,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

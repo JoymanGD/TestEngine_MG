@@ -21,9 +21,10 @@ namespace Common.ECS.Systems
         private World world;
         private const float SPEED_COEF = 20;
         
-        public OrbitalCameraSystem(World _world, IParallelRunner _runner) : base(_world, CreateEntityContainer, null, 0){
-            world = _world;
-            runner = _runner;
+        public OrbitalCameraSystem(World world, IParallelRunner runner) : base(world, CreateEntityContainer, null, 0)
+        {
+            this.world = world;
+            this.runner = runner;
         }
 
         [Update]

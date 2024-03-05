@@ -14,14 +14,16 @@ namespace Common.ECS.Systems
         private IParallelRunner runner;
         private World world;
         
-        public ControllerRegistrationSystem(World _world, IParallelRunner _runner) : base(_world, CreateEntityContainer, null, 0){
-            world = _world;
-            runner = _runner;
+        public ControllerRegistrationSystem(World world, IParallelRunner runner) : base(world, CreateEntityContainer, null, 0)
+        {
+            this.world = world;
+            this.runner = runner;
         }
 
         [Update]
-        private void Update(ref Controller _controller, ref Bindings _bindings){
-            _controller.Init(_bindings);
+        private void Update(ref Controller controller, ref Bindings bindings)
+        {
+            controller.Init(bindings);
         }
     }
 }

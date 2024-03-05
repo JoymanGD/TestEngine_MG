@@ -3,6 +3,7 @@ using DefaultEcs.System;
 using DefaultEcs.Threading;
 using Microsoft.Xna.Framework;
 using Common.ECS.Components;
+using Common.Settings;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 
@@ -32,7 +33,9 @@ namespace Common.ECS.Systems
             var elapsedMilliseconds = _gameTime.ElapsedGameTime.TotalMilliseconds;
             var elapsedSeconds = _gameTime.ElapsedGameTime.TotalSeconds;
             var fps = 1/elapsedSeconds;
-            SpriteBatch.Begin();
+            
+            SpriteBatch.Begin(0, BlendState.Opaque, SamplerState.AnisotropicClamp);
+            SpriteBatch.Draw(ShadowMapGenerationSystem.ShadowMap, new Rectangle(0, 0, 512, 512), Color.White);
             SpriteBatch.DrawString(_font, $"FPS: {fps}\nElapsed time(ms): {elapsedMilliseconds}\nPlayer speed: {currentSpeed}", Vector2.One * 20, Color.White);
             SpriteBatch.End();
         }
