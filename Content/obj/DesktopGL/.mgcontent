@@ -4,13 +4,13 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Joyman/Desktop/Projects/Monogame/TestEngine_MG/Content/Fonts/Default.spritefont</File>
-    <File>C:/Users/Joyman/Desktop/Projects/Monogame/TestEngine_MG/Content/Models/byBulletMan_v_3_2.fbx</File>
-    <File>C:/Users/Joyman/Desktop/Projects/Monogame/TestEngine_MG/Content/Models/byBulletMan_v_3.fbx</File>
-    <File>C:/Users/Joyman/Desktop/Projects/Monogame/TestEngine_MG/Content/Models/Flemer.fbx</File>
-    <File>C:/Users/Joyman/Desktop/Projects/Monogame/TestEngine_MG/Content/Models/Ground.fbx</File>
-    <File>C:/Users/Joyman/Desktop/Projects/Monogame/TestEngine_MG/Content/Models/Mage.fbx</File>
-    <File>C:/Users/Joyman/Desktop/Projects/Monogame/TestEngine_MG/Content/Models/Mastron.fbx</File>
+    <File>C:/Users/VladimirK_Work/Desktop/TestEngine_MG/Content/Fonts/Default.spritefont</File>
+    <File>C:/Users/VladimirK_Work/Desktop/TestEngine_MG/Content/Models/byBulletMan_v_3_2.fbx</File>
+    <File>C:/Users/VladimirK_Work/Desktop/TestEngine_MG/Content/Models/byBulletMan_v_3.fbx</File>
+    <File>C:/Users/VladimirK_Work/Desktop/TestEngine_MG/Content/Models/Flemer.fbx</File>
+    <File>C:/Users/VladimirK_Work/Desktop/TestEngine_MG/Content/Models/Ground.fbx</File>
+    <File>C:/Users/VladimirK_Work/Desktop/TestEngine_MG/Content/Models/Mage.fbx</File>
+    <File>C:/Users/VladimirK_Work/Desktop/TestEngine_MG/Content/Models/Mastron.fbx</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

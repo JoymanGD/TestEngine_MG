@@ -18,5 +18,6 @@
   "Debug_SelectLight_3": 99,
   "Debug_SelectLight_4": 100,
   "Debug_SelectLight_5": 101,
-  "Debug_SelectLight_6": 102
+  "Debug_SelectLight_6": 102,
+  "Debug_ShadowMap": 106
 }

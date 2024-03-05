@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("byBullet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0cfbe2cef7f5c0f1d76b448fb6f7ea7cde49e3b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96bcbbba634715a33c6934310d14855de213051c")]
 [assembly: System.Reflection.AssemblyProductAttribute("byBullet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("byBullet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -15,7 +15,7 @@ struct LightData
     uint Type;
 };
 
-float CalcShadowTermSoftPCF(Texture2D ShadowMap, SamplerState ShadowMapSampler, float fLightDepth, float ndotl, float2 vTexCoord, int iSqrtSamples)
+float CalcShadowTermSoftPCF(Texture2D<float> ShadowMap, SamplerState ShadowMapSampler, float fLightDepth, float ndotl, float2 vTexCoord, int iSqrtSamples)
 {
     float fShadowTerm = 0.0f;
     
@@ -38,7 +38,7 @@ float CalcShadowTermSoftPCF(Texture2D ShadowMap, SamplerState ShadowMapSampler, 
             //vOffset *= 2;
             //vOffset /= variableBias*200;
             float2 vSamplePoint = vTexCoord + vOffset;
-            float fDepth = ShadowMap.Sample(ShadowMapSampler, vSamplePoint).x;
+            float fDepth = ShadowMap.Sample(ShadowMapSampler, vSamplePoint);
             float fSample = (fLightDepth <= fDepth + variableBias);
             
             // Edge tap smoothing
