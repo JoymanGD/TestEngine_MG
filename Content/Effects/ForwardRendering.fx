@@ -107,11 +107,12 @@ float4 PixelShaderFunction(PixelShaderInput input) : SV_Target
             float2 ShadowTexCoord = saturate(mad(0.5f, float2(LightPosProjected.x, -LightPosProjected.y), 0.5f));
             float CurrentDepth = LightPosProjected.z - 0.0001f;
 
-            float SampledDepth = ShadowMap.Sample(ShadowMapSampler, ShadowTexCoord);
-            if(SampledDepth < CurrentDepth)
-            {
-                ShadowContribution = .1f;
-            }
+            ShadowContribution = CalcShadowTermSoftPCF(ShadowMap, ShadowMapSampler, CurrentDepth, NDotL, ShadowTexCoord, 3);
+//            float SampledDepth = ShadowMap.Sample(ShadowMapSampler, ShadowTexCoord);
+//            if(SampledDepth < CurrentDepth)
+//            {
+//                ShadowContribution = .1f;
+//            }
         }
     
         allLightsColor += ((diffuse + specular) * ShadowContribution + ambient) * textureColor;

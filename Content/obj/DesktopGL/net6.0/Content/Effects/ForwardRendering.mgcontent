@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Joyman/Desktop/Projects/Monogame/TestEngine_MG/Content/Effects/ForwardRendering.fx</SourceFile>
-  <SourceTime>2024-03-05T02:22:13.1749994+02:00</SourceTime>
-  <DestFile>C:/Users/Joyman/Desktop/Projects/Monogame/TestEngine_MG/Content/bin/DesktopGL/Content/Effects/ForwardRendering.xnb</DestFile>
-  <DestTime>2024-03-05T02:22:53.0617135+02:00</DestTime>
+  <SourceFile>C:/Users/VladimirK_Work/Desktop/TestEngine_MG/Content/Effects/ForwardRendering.fx</SourceFile>
+  <SourceTime>2024-03-05T11:11:03.9466244+02:00</SourceTime>
+  <DestFile>C:/Users/VladimirK_Work/Desktop/TestEngine_MG/Content/bin/DesktopGL/Content/Effects/ForwardRendering.xnb</DestFile>
+  <DestTime>2024-03-05T11:42:38.132589+02:00</DestTime>
   <Importer>EffectImporter</Importer>
   <ImporterTime>2023-03-19T22:06:30+02:00</ImporterTime>
   <Processor>EffectProcessor</Processor>
@@ -17,7 +17,7 @@
     <Value />
   </Parameters>
   <Dependencies>
-    <string>C:\Users\Joyman\Desktop\Projects\Monogame\TestEngine_MG\Content\Effects\Common.fx</string>
+    <string>C:\Users\VladimirK_Work\Desktop\TestEngine_MG\Content\Effects\Common.fx</string>
   </Dependencies>
   <BuildAsset />
   <BuildOutput />

@@ -29,6 +29,9 @@
   <ItemGroup>
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
+    <None Include="bin\Debug\net6.0\Content\Fonts\Default.otf" />
+    <None Include="bin\Debug\net6.0\Content\Json\Camera.json" />
+    <None Include="bin\Debug\net6.0\Content\Json\Player.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -51,6 +54,9 @@
     <PackageReference Include="MonoGame.Extended.Input" Version="3.8.0" />
     <PackageReference Include="MonoGame.Framework.Compute.DesktopGL" Version="3.8.2" />
     <PackageReference Include="Myra" Version="1.2.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\net6.0\Content\Fonts\Default.xnb" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

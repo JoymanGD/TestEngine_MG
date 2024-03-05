@@ -18,6 +18,8 @@ namespace Common.ECS.Systems
         private World world;
         private SpriteBatch SpriteBatch;
         
+        public static bool ShowShadowMap;
+        
         public ProfilingSystem(SpriteBatch _spriteBatch, World _world, IParallelRunner _runner) : base(_world, CreateEntityContainer, null, 0){
             world = _world;
             runner = _runner;
@@ -35,7 +37,10 @@ namespace Common.ECS.Systems
             var fps = 1/elapsedSeconds;
             
             SpriteBatch.Begin(0, BlendState.Opaque, SamplerState.AnisotropicClamp);
-            SpriteBatch.Draw(ShadowMapGenerationSystem.ShadowMap, new Rectangle(0, 0, 512, 512), Color.White);
+            if(ShowShadowMap)
+            {
+                SpriteBatch.Draw(ShadowMapGenerationSystem.ShadowMap, new Rectangle(0, 0, 512, 512), Color.White);
+            }
             SpriteBatch.DrawString(_font, $"FPS: {fps}\nElapsed time(ms): {elapsedMilliseconds}\nPlayer speed: {currentSpeed}", Vector2.One * 20, Color.White);
             SpriteBatch.End();
         }

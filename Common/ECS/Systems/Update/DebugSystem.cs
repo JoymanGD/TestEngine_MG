@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework;
 using Common.ECS.Components;
 using System;
 using System.Linq;
+using Common.Settings;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Common.ECS.Systems
 {
@@ -18,6 +20,7 @@ namespace Common.ECS.Systems
         private bool lightsOn = true;
         private int SelectedLightIndex = -1;
         private const float RotationSpeed = .01f;
+        private bool ShowShadowMap = false;
         
         public DebugSystem(World _world, IParallelRunner _runner) : base(_world, CreateEntityContainer, null, 0)
         {
@@ -121,6 +124,11 @@ namespace Common.ECS.Systems
                         lightsEntities[SelectedLightIndex].Get<Components.Light>().Color = newColor;
                         Console.WriteLine($"Light_{SelectedLightIndex} color changed to: {lightsEntities[SelectedLightIndex].Get<Components.Light>().Color}");
                     }
+                }
+            
+                if(controller.WasPressed("Debug_ShadowMap"))
+                {
+                    ProfilingSystem.ShowShadowMap = !ProfilingSystem.ShowShadowMap;
                 }
             }
         }

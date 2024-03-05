@@ -526,19 +526,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Joyman\\.nuget\\packages\\": {}
+    "C:\\Users\\VladimirK_Work\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joyman\\Desktop\\Projects\\Monogame\\TestEngine_MG\\byBullet.csproj",
+      "projectUniqueName": "C:\\Users\\VladimirK_Work\\Desktop\\TestEngine_MG\\byBullet.csproj",
       "projectName": "byBullet",
-      "projectPath": "C:\\Users\\Joyman\\Desktop\\Projects\\Monogame\\TestEngine_MG\\byBullet.csproj",
-      "packagesPath": "C:\\Users\\Joyman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joyman\\Desktop\\Projects\\Monogame\\TestEngine_MG\\obj\\",
+      "projectPath": "C:\\Users\\VladimirK_Work\\Desktop\\TestEngine_MG\\byBullet.csproj",
+      "packagesPath": "C:\\Users\\VladimirK_Work\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\VladimirK_Work\\Desktop\\TestEngine_MG\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Joyman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\VladimirK_Work\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -558,11 +558,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {

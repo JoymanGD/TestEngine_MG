@@ -5,12 +5,12 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Joyman\.nuget\packages\</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\VladimirK_Work\.nuget\packages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.9.1</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.8.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <SourceRoot Include="C:\Users\Joyman\.nuget\packages\" />
+    <SourceRoot Include="C:\Users\VladimirK_Work\.nuget\packages\" />
   </ItemGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Content Include="$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\CppNet.dll" Condition="Exists('$(NuGetPackageRoot)monogame.extended\3.8.0\contentFiles\any\netstandard2.0\CppNet.dll')">
@@ -114,6 +114,6 @@
     <Import Project="$(NuGetPackageRoot)monogame.content.builder.task.compute\3.8.2\build\MonoGame.Content.Builder.Task.Compute.props" Condition="Exists('$(NuGetPackageRoot)monogame.content.builder.task.compute\3.8.2\build\MonoGame.Content.Builder.Task.Compute.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgDefaultEcs_Analyzer Condition=" '$(PkgDefaultEcs_Analyzer)' == '' ">C:\Users\Joyman\.nuget\packages\defaultecs.analyzer\0.15.0</PkgDefaultEcs_Analyzer>
+    <PkgDefaultEcs_Analyzer Condition=" '$(PkgDefaultEcs_Analyzer)' == '' ">C:\Users\VladimirK_Work\.nuget\packages\defaultecs.analyzer\0.15.0</PkgDefaultEcs_Analyzer>
   </PropertyGroup>
 </Project>

@@ -52,8 +52,8 @@ namespace Common
             Graphics = new GraphicsDeviceManager(this);
             Graphics.GraphicsProfile = GraphicsProfile.HiDef;
             
-            Graphics.PreferredBackBufferWidth = 1600;
-            Graphics.PreferredBackBufferHeight = 1600;
+            Graphics.PreferredBackBufferWidth = 1024;
+            Graphics.PreferredBackBufferHeight = 1024;
             Graphics.IsFullScreen = false;
 
             //Other
